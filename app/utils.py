@@ -1,19 +1,17 @@
 import random
+import xlrd
+import numpy as np
 #import turtle
 from random import randint
 
-"""
-class OpenGraphImage:
+#TODO:  create a function for save excel document ( https://flask.palletsprojects.com/en/1.1.x/patterns/fileuploads/ )
 
-    def __init__(self, first_name, description):
-      self.base()
+def readExcelDocument():
+    workbook = xlrd.open_workbook('read_excel_file_with_python.xlsx')
+    worksheet = workbook.sheet_by_name(SheetNameList[0])
+    print( 'num_rows, num_cells', worksheet.nrows, worksheet.ncols )
 
-    def base(self):
-      # create a basic image
-      pass
-"""
-# créate object for this class 
-# OpenGraphImage('Céline', description)
+
 
 """
 def draw_random_line():

@@ -10,7 +10,17 @@
               <p> Créer un diagramme d'entreprise a partir d'un tableau excel</p>
               <br/><br/>
               <div class="card">
-                
+                <!-- action="http://jkorpela.fi/cgi-bin/echo.cgi" for test upload form -->
+                <form action="http://jkorpela.fi/cgi-bin/echo.cgi" enctype="multipart/form-data" method="post">
+                  <p>
+                    Veuillez upload un fichier excel<br><br/>
+                    <input type="file" name="datafile" size="40">
+                  </p>
+                  <div>
+                    
+                    <button type="submit" class="btn btn-warning" value="Send">Upload Excel Document</button>
+                  </div>
+                </form>
               </div>
             </div>
         </div>
