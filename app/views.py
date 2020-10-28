@@ -9,8 +9,14 @@ app.config.from_object('config')
 
 @app.route('/')
 def index():
-    drawDiagram()
     return render_template('index.html')
+
+@app.route('/result')
+def result():
+    drawDiagram()
+    return render_template('result.html')
+
+
 
 @app.errorhandler(405)
 def method_not_allowed(e):

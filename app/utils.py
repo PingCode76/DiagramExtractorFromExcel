@@ -1,6 +1,8 @@
 import random
 import xlrd
+import turtle
 
+from turtle import *
 from random import randint
 
 def readExcelDocument(file):
@@ -21,4 +23,19 @@ def drawDiagram():
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
     }
 
+    turtle.setup(640, 480, 100, 100)  #Largeur : 640px, Hauteur : 480px, pos x : 100px, pos y : 100px
+    turtle.setup(200, 200)  #Largeur : 200px, Hauteur : 200px, position centrée
+    turtle.setup(startx = 0, starty = 0)  #Largeur : 50%, Hauteur : 75%, position : coin haut gauche écran
+    turtle.setup()  #Largeur : 50%, Hauteur : 75%, position centrée
+    turtle.bgcolor("white")
+
     print('drawing diagram...')
+
+    penup()
+    goto(0,-100)
+    pendown()
+
+    circle(100,270)
+    penup()
+    home()
+    exitonclick()
