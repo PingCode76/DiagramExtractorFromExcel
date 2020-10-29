@@ -1,14 +1,14 @@
 import random
 import xlrd
 import turtle
-
 from turtle import *
+
 from random import randint
 
-def readExcelDocument(file):
-    workbook = xlrd.open_workbook(file)
-    worksheet = workbook.sheet_by_name(SheetNameList[0])
-    print( 'num_rows, num_cells', worksheet.nrows, worksheet.ncols )
+import svgwrite
+from .SvgTurtle import SvgTurtle
+#from .utils import drawDiagram
+#import svgTurtle
 
 def drawDiagram():
     data = {
@@ -22,20 +22,39 @@ def drawDiagram():
         "g":["2","2","Tra","Ipsum proin quis tortora maxima Aenean lobortis","KJ65","HF32"],
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
     }
-
-    turtle.setup(640, 480, 100, 100)  #Largeur : 640px, Hauteur : 480px, pos x : 100px, pos y : 100px
-    turtle.setup(200, 200)  #Largeur : 200px, Hauteur : 200px, position centrée
-    turtle.setup(startx = 0, starty = 0)  #Largeur : 50%, Hauteur : 75%, position : coin haut gauche écran
-    turtle.setup()  #Largeur : 50%, Hauteur : 75%, position centrée
-    turtle.bgcolor("white")
-
     print('drawing diagram...')
 
-    penup()
-    goto(0,-100)
-    pendown()
+    #write("mon_texte",False,align='Left',font=('Arial',16,'normal')).
 
-    circle(100,270)
-    penup()
-    home()
-    exitonclick()
+    print(turtle.heading())  #Affiche 0.0 : le crayon pointe vers le point bleu : Est
+    turtle.left(90)  #Pointe vers le point jaune : Nord
+    turtle.right(270)  #Pointe vers le point vert : Ouest
+    turtle.setheading(0)  #Pointe de nouveau vers le point bleu
+    turtle.setheading(-90)  #Pointe à l'opposé du point jaune : Sud
+    print(turtle.heading())  #Affiche '270.0'
+
+    #diagram = turtle.getscreen()
+
+    # try to export diagram in eps or svg with this function 
+    #diagram.getcanvas().postscript(file="diagram.eps")
+    #turtle.bye()
+    #turtle.mainloop()
+    #wn.mainloop()
+
+def encode_file(draw_func, filename, size):
+    drawing = svgwrite.Drawing(filename, size=size)
+    drawing.add(drawing.rect(fill='white', size=("100%", "100%")))
+    t = SvgTurtle(drawing)
+    Turtle._screen = t.screen
+    Turtle._pen = t
+    draw_func()
+    drawing.save()
+    #turtle.bye()
+
+
+def exportDraw():
+    encode_file(drawDiagram, 'diagram.svg', size=("500px", "500px"))
+    print('Draw exported in svg.')
+
+exportDraw()
+

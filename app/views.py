@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, jsonify
 
-from .utils import readExcelDocument, drawDiagram
+from .utils import drawDiagram
 
 app = Flask(__name__)
 # Config options - Make sure you created a 'config.py' file.
@@ -15,8 +15,6 @@ def index():
 def result():
     drawDiagram()
     return render_template('result.html')
-
-
 
 @app.errorhandler(405)
 def method_not_allowed(e):
