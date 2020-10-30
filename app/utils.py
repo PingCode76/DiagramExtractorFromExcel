@@ -31,8 +31,8 @@ def exportDraw():
             os.remove(path) # specifying the path of the file for delete old diagram
     print("File deleted successfully")
     # encode drawDiagram from draw.py
-    encode_file(drawDiagram, path , size=("500px", "500px")) 
-    #print("encode file successfully")
+    encode_file(drawDiagram, path , size=("2000px", "2000")) 
+    
     #shutil.move('./' + os.path.abspath(os.path.dirname(__file__)) + '/diagram.svg', 'static/img/diagram.svg')
     #print('Draw exported in svg.')
 exportDraw() #export when diagram is deleted
