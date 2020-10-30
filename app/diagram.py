@@ -21,17 +21,17 @@ data = {
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
     }
 
-# Count a different word in Sequence for know the number of section to create
+# Count a all name and number of sequence type #OUTPUT : '
 def countRectangleSection(data):
-    differentWord = 0
     WordList = ''
+    RectangleName = []
     for line in data.values():
         WordList = WordList + line[2] + ' '
     for mot in WordList.split():
         if mot in WordList:
-            differentWord = differentWord + 1
             WordList = WordList.replace(mot, '')
-    return differentWord
+            RectangleName.append(mot)
+    return RectangleName
 
 #Count a number of label ( entry line in table )
 def countlabel(data):
@@ -42,26 +42,28 @@ def countlabel(data):
         LabelNumber = LabelNumber + 1
     return LabelNumber
 
-# SELECT ONE LINE OF DATA 
-# TODO: verify this function 
-def selectLineinData(data):
+# SELECT ONE LINE OF DATA  
+def selectLineinData(data, numberLine):
+    i = 0 
     for line in data.values():
-        print(line)
-        return line
+        i = i + 1
+        if numberLine == i:
+            return line
 
-# More information for each RectangleSection    
+# find which label belongs to which rectangle    
 # output : { rect1:[a,b], rect2:[c,d]}  
-# TODO : use countRectangleSection(data)
 def LabelInformation():
     information = {}
-    i = 0 
-    RectangleNumber = countRectangleSection(data)
-    while i < RectangleNumber:
-        # TODO: for loop .... ( search key line (a,b,c..) with correct rect ) ( use selectLineinData)
-        information.update({ i:['a']})
-        i = i + 1 
+    RectangleNumber = countRectangleSection(data) #Rectange number
+    for rect in RectangleNumber:
+        # TODO : Chercher les labels ( ou line ) qui appartiennent a rect, et les ajouter au dictionnaire #use selectLineinData)
+        entry = [] # append to this table, all entry with line[2] == rect
+        information.update({ rect :['a']})
     print(information)
 
     return information
     
 
+## TEST for module
+#selectLineinData(data, 3)
+LabelInformation()
