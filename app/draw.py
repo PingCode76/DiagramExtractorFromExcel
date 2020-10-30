@@ -1,24 +1,67 @@
 from .diagram import * 
 
 def drawDiagram():
-    data = {
-        # line : id_function, Sequence, Operation Type, Description, Node1, Node2 
-        "a":["1","1","Col","Lorem ipsum dolor sit amet, consectetur adipiscing elit","AX23","BY12"], 
-        "b":["1","2","Tra","Donec fringilla, erat non suscipit faucibus, léo mi porta enim","BY12","CF43"],
-        "c":["1","3","Tra","Proin quis tortor pharetra, pulvinar sem viate, lobortis","BY12","CG54"],
-        "d":["1","4","Fer","Nulla vel mollis sem. Quisque consectetur maximus ornare.","CG54","TR89"],
-        "e":["1","5","Fer","Aliquam erat volutpar. Curabitur et magna","CF43","DS09"],
-        "f":["2","1","Col","Cras Suscipit hendrerit feugiat Viva porta sed consecta","AB56","KJ65"],
-        "g":["2","2","Tra","Ipsum proin quis tortora maxima Aenean lobortis","KJ65","HF32"],
-        "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
-    }
-    #print('drawing diagram...')
-    nbRectangleInDiagram = countRectangleSection(data)
-    print(str(nbRectangleInDiagram) + ' rectangles (OperationType)' )
-    nblabel = countlabel(data)
-    print(str(nblabel) + ' label (line in table)' )
-    #write("mon_texte",False,align='Left',font=('Arial',16,'normal')).
-    ########## Organize DATA ###############
+
     ########## drawing Diagram ###############
-    turtle.color('red')
-    turtle.circle(120)
+
+    # Create nb Rectangle
+    nbRectangleInDiagram = countRectangleSection(data) #count la nouvelle variable 
+
+    # boucle nbRectangleInDiagram for create Rectangle
+    i = 0 
+    while i < nbRectangleInDiagram:
+        #print(nbRectangleInDiagram) # 3 
+
+        if i == 0:
+            turtle.up()
+            turtle.goto(-1000, 400)
+            turtle.down()
+            turtle.forward(300) #Forward turtle by 150 units ( width )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(600) #Forward turtle by 80 units ( height )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(300) #Forward turtle by 150 units ( width )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(600) #Forward turtle by 80 units ( height )
+            turtle.left(90) #Turn turtle by 90 degree
+
+        if i == 1:
+            turtle.up()
+            turtle.goto(-600, 400)
+            turtle.down()
+            turtle.forward(300) #Forward turtle by 150 units ( width )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(600) #Forward turtle by 80 units ( height )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(300) #Forward turtle by 150 units ( width )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(600) #Forward turtle by 80 units ( height )
+            turtle.left(90) #Turn turtle by 90 degree
+
+
+        if i == 2:
+            turtle.up()
+            turtle.goto(-200, 400)
+            turtle.down()
+            turtle.forward(300) #Forward turtle by 150 units ( width )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(600) #Forward turtle by 80 units ( height )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(300) #Forward turtle by 150 units ( width )
+            turtle.left(90) #Turn turtle by 90 degree
+            turtle.forward(600) #Forward turtle by 80 units ( height )
+            turtle.left(90) #Turn turtle by 90 degree
+
+        print(i)
+        i = i + 1 
+        
+
+        
+
+
+    #write("mon_texte",False,align='Left',font=('Arial',16,'normal')).
+
+
+    # test 
+    #turtle.color('green')
+    #turtle.circle(120)
