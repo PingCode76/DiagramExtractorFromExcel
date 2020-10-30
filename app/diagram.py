@@ -63,21 +63,5 @@ def LabelInformation():
     print(information)
 
     return information
-
-# TODO: Export in draw.py by yohann
-def drawDiagram():
-
-    nbRectangleInDiagram = countRectangleSection(data)
-    print(str(nbRectangleInDiagram) + ' rectangles (OperationType)' )
-    nblabel = countlabel(data)
-    print(str(nblabel) + ' label (line in table)' )
-    LabelInformation()
-
-    #write("mon_texte",False,align='Left',font=('Arial',16,'normal')).
-
-    ########## drawing Diagram ###############
-    turtle.color('black')
-    
-    turtle.circle(120)
     
 
