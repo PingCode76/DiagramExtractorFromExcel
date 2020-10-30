@@ -518,7 +518,7 @@ div#maincontent {
 /********** ADD APPLICATION STYLES ************/
 
 .draw{
-  overflow: hidden;
+  /*overflow: hidden;*/
   margin: 0;
   padding: 10px;
 }
