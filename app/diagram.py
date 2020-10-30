@@ -44,10 +44,13 @@ def countlabel(data):
 
 # SELECT ONE LINE OF DATA 
 # TODO: verify this function 
-def selectLineinData(data):
+def selectLineinData(data, numberLine):
+    i = 0 
     for line in data.values():
-        print(line)
-        return line
+        i = i + 1
+        if numberLine == i:
+            print(line)
+            return line
 
 # More information for each RectangleSection    
 # output : { rect1:[a,b], rect2:[c,d]}  
@@ -65,3 +68,5 @@ def LabelInformation():
     return information
     
 
+## TEST for module
+selectLineinData(data, 3)
