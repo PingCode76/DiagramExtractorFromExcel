@@ -514,3 +514,11 @@ fieldset[disabled] .btn-success.active {
 div#maincontent {
   outline: none;
 }
+
+/********** ADD APPLICATION STYLES ************/
+
+.draw{
+  overflow: hidden;
+  margin: 0;
+  padding: 10px;
+}

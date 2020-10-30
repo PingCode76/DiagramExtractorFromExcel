@@ -4,30 +4,16 @@
 <header>
   <div class="container" id="maincontent" tabindex="-1">
     <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
-          <h3> Votre diagramme</h3>
-          
-          <div class="card">
-            <div class="row">
-              <div class="col-sm-3 col-sm-offset-3">
 
-              </div>
-              <div class="col-sm-3">
-                
-                <br/><br/><br/><br/><br/><br/><br/><br/>
+      <h3> Votre diagramme</h3>
+      <br/>
 
-                <div class="draw">
-                  <img src="diagram.svg" />
-                </div>
+      <div class="draw">
+        <img src="{{ url_for('static', filename='img/diagram.svg') }}" />
+      </div>
 
-                <div class="draw">
-                  <img src="{{ url_for('static', filename='img/diagram.svg') }}" />
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
+      <br/><br/>
+      </div>
     </div>
   </div>
 </header>

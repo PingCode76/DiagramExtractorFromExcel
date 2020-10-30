@@ -1,14 +1,16 @@
 import random
+import os.path
+import os
+import shutil
 import xlrd
 import turtle
 from turtle import *
+#from Tkinter import *
 
 from random import randint
 
 import svgwrite
 from .SvgTurtle import SvgTurtle
-#from .utils import drawDiagram
-#import svgTurtle
 
 def drawDiagram():
     data = {
@@ -26,34 +28,38 @@ def drawDiagram():
 
     #write("mon_texte",False,align='Left',font=('Arial',16,'normal')).
 
-    print(turtle.heading())  #Affiche 0.0 : le crayon pointe vers le point bleu : Est
-    turtle.left(90)  #Pointe vers le point jaune : Nord
-    turtle.right(270)  #Pointe vers le point vert : Ouest
-    turtle.setheading(0)  #Pointe de nouveau vers le point bleu
-    turtle.setheading(-90)  #Pointe à l'opposé du point jaune : Sud
-    print(turtle.heading())  #Affiche '270.0'
+    # draw here
+    turtle.color('black')
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.left(90)
+    turtle.forward(50)
+    turtle.left(90) 
+    turtle.circle(120)
 
-    #diagram = turtle.getscreen()
-
-    # try to export diagram in eps or svg with this function 
-    #diagram.getcanvas().postscript(file="diagram.eps")
     #turtle.bye()
-    #turtle.mainloop()
-    #wn.mainloop()
 
 def encode_file(draw_func, filename, size):
     drawing = svgwrite.Drawing(filename, size=size)
     drawing.add(drawing.rect(fill='white', size=("100%", "100%")))
+
+    drawing.add(drawing.line((440, 280), (1180, 280), stroke='#0f0', stroke_width=7))
+    #drawing.__init__(filename=u'static/noname.svg')
     t = SvgTurtle(drawing)
     Turtle._screen = t.screen
     Turtle._pen = t
     draw_func()
     drawing.save()
-    #turtle.bye()
+
+    # The SVG file have a form, but this form is not displaying in webpage
 
 
 def exportDraw():
-    encode_file(drawDiagram, 'diagram.svg', size=("500px", "500px"))
+    encode_file(drawDiagram, 'app/static/img/diagram.svg', size=("500px", "500px"))
+    #shutil.move('./' + os.path.abspath(os.path.dirname(__file__)) + '/diagram.svg', 'static/img/diagram.svg')
     print('Draw exported in svg.')
 
 exportDraw()
