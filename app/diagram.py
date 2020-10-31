@@ -68,7 +68,50 @@ def LabelInformation():
 
     return information
     
+# intern function, do not use in draw.py
+def createTableColor():
+    i = 0   
+    table = []
+    for line in data.values():
+        #increment
+        i = i + 1 
+        # add element in table if not exist
+        if line[2] not in table:
+            table.append(line[2])
+    return table
+
+
+# output : 1 : red, 2: yellow
+def checkdifferentsColor():
+    information = {}
+    ColorsDifferent = ['green', 'yellow','orange', 'red', 'blue','purple','marron', 'grey', 'black', 'white']
+    i = 0   
+    n = 0
+    table = createTableColor()
+    # table = ['Col', 'Tra', 'Fer']
+
+    # attribute colors
+    for line in data.values():
+        n = n + 1 
+        i = i + 1
+        if table[0]:
+            if line[2] == table[0]:
+                information.update({i: ColorsDifferent[0]})
+        if table[1]:
+            if line[2] == table[1]:
+                information.update({i: ColorsDifferent[1]})
+        if table[2]:
+            if line[2] == table[2]:
+                information.update({i: ColorsDifferent[2]})
+
+
+    print(information)
+    return information
+
+
+
 
 ## TEST for module
 #selectLineinData(data, 3)
-LabelInformation()
+checkdifferentsColor()
+#LabelInformation()
