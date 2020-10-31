@@ -26,7 +26,7 @@ def countRectangleSection(data):
     WordList = ''
     RectangleName = []
     for line in data.values():
-        WordList = WordList + line[2] + ' '
+        WordList = WordList + line[1] + ' ' #1 Select a Sequence type
     for mot in WordList.split():
         if mot in WordList:
             WordList = WordList.replace(mot, '')
