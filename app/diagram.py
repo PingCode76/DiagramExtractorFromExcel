@@ -51,14 +51,19 @@ def selectLineinData(data, numberLine):
             return line
 
 # find which label belongs to which rectangle    
-# output : { rect1:[a,b], rect2:[c,d]}  
+# output : { rect1:[label1 ,label2], rect2:[label3,label4]}  
 def LabelInformation():
     information = {}
     RectangleNumber = countRectangleSection(data) #Rectange number
     for rect in RectangleNumber:
-        # TODO : Chercher les labels ( ou line ) qui appartiennent a rect, et les ajouter au dictionnaire #use selectLineinData)
-        entry = [] # append to this table, all entry with line[2] == rect
-        information.update({ rect :['a']})
+        entry = [] 
+        i = 0
+        for line in data.values():
+            i = i + 1
+            if rect == line[1]:
+                entry.append(i)
+        information.update({ rect : entry })
+
     print(information)
 
     return information
