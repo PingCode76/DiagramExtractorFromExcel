@@ -8,7 +8,7 @@ def drawDiagram():
     
 
     x = -1000
-    # foreach tab 
+    # foreach tab # rectangle
     for rectangle in nbRectangleInDiagram:
         #print(nbRectangleInDiagram) # 3 
         turtle.color('green')
@@ -28,11 +28,12 @@ def drawDiagram():
         turtle.forward(600) #Forward turtle by 80 units ( height )
         turtle.left(90) #Turn turtle by 90 degree
 
-        turtle.end_fill() # end color 
+        turtle.end_fill() # end color  
 
         x = x + 400
 
         # for each rectangle, label
+        # Label
         t = -900 #x
         v = 800 #y
 
@@ -61,12 +62,10 @@ def drawDiagram():
             t = t +0 #x
             v = v - 150#y
 
-            # Todo : add node 
+            # Nodes 
             # first label 
-
             n = -900#x
             m = 825#y # 800 
-
             for nodes in rectangle:
                 #node left
                 turtle.goto(n,m)
@@ -95,6 +94,32 @@ def drawDiagram():
                 turtle.up()
 
                 m = m - 150 #y
+
+            # color # depend data 
+            a = -860 #x
+            b = 870 #y #825
+            for color in rectangle:
+                turtle.color('black') #color 
+                turtle.up()
+                turtle.goto(a,b) # pos
+                turtle.down()
+
+                turtle.fillcolor('red') # background color 
+                turtle.begin_fill() # begin color 
+
+                turtle.forward(70) #Forward turtle by 150 units ( width )
+                turtle.left(90) #Turn turtle by 90 degree
+                turtle.forward(10) #Forward turtle by 80 units ( height )
+                turtle.left(90) #Turn turtle by 90 degree
+                turtle.forward(70) #Forward turtle by 150 units ( width )
+                turtle.left(90) #Turn turtle by 90 degree
+                turtle.forward(10) #Forward turtle by 80 units ( height )
+                turtle.left(90) #Turn turtle by 90 degree
+
+                turtle.end_fill() # end color 
+                turtle.up()
+
+                b = b - 150 #y
             
 
     #write("mon_texte",False,align='Left',font=('Arial',16,'normal')).
