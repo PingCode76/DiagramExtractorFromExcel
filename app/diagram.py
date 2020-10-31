@@ -20,7 +20,7 @@ data = {
         "g":["2","2","Tra","Ipsum proin quis tortora maxima Aenean lobortis","KJ65","HF32"],
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
     }
-
+  
 # Count a all name and number of sequence type #OUTPUT : '
 def countRectangleSection(data):
     WordList = ''
