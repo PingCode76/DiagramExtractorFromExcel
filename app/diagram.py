@@ -104,14 +104,16 @@ def checkdifferentsColor():
             if line[2] == table[2]:
                 information.update({i: ColorsDifferent[2]})
 
-
     print(information)
     return information
 
-
+#output : 
+def nodeInformation():
+    return 0
 
 
 ## TEST for module
 #selectLineinData(data, 3)
-checkdifferentsColor()
+#checkdifferentsColor()
 #LabelInformation()
+nodeInformation()
