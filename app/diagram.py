@@ -107,8 +107,11 @@ def checkdifferentsColor():
     print(information)
     return information
 
-#output : 
+#output : {node1: [label1, label5], node2:... }
 def nodeInformation():
+    # Check different line of data
+    # For each line, check if node1 == node2 of each other line
+    # if node1 == node2 , update dict 
     return 0
 
 
