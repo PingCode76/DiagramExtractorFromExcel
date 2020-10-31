@@ -26,7 +26,7 @@ def countRectangleSection(data):
     WordList = ''
     RectangleName = []
     for line in data.values():
-        WordList = WordList + line[2] + ' '
+        WordList = WordList + line[1] + ' ' #1 Select a Sequence type
     for mot in WordList.split():
         if mot in WordList:
             WordList = WordList.replace(mot, '')
@@ -51,19 +51,67 @@ def selectLineinData(data, numberLine):
             return line
 
 # find which label belongs to which rectangle    
-# output : { rect1:[a,b], rect2:[c,d]}  
+# output : { rect1:[label1 ,label2], rect2:[label3,label4]}  
 def LabelInformation():
     information = {}
     RectangleNumber = countRectangleSection(data) #Rectange number
     for rect in RectangleNumber:
-        # TODO : Chercher les labels ( ou line ) qui appartiennent a rect, et les ajouter au dictionnaire #use selectLineinData)
-        entry = [] # append to this table, all entry with line[2] == rect
-        information.update({ rect :['a']})
+        entry = [] 
+        i = 0
+        for line in data.values():
+            i = i + 1
+            if rect == line[1]:
+                entry.append(i)
+        information.update({ rect : entry })
+
     print(information)
 
     return information
     
+# intern function, do not use in draw.py
+def createTableColor():
+    i = 0   
+    table = []
+    for line in data.values():
+        #increment
+        i = i + 1 
+        # add element in table if not exist
+        if line[2] not in table:
+            table.append(line[2])
+    return table
+
+
+# output : 1 : red, 2: yellow
+def checkdifferentsColor():
+    information = {}
+    ColorsDifferent = ['green', 'yellow','orange', 'red', 'blue','purple','marron', 'grey', 'black', 'white']
+    i = 0   
+    n = 0
+    table = createTableColor()
+    # table = ['Col', 'Tra', 'Fer']
+
+    # attribute colors
+    for line in data.values():
+        n = n + 1 
+        i = i + 1
+        if table[0]:
+            if line[2] == table[0]:
+                information.update({i: ColorsDifferent[0]})
+        if table[1]:
+            if line[2] == table[1]:
+                information.update({i: ColorsDifferent[1]})
+        if table[2]:
+            if line[2] == table[2]:
+                information.update({i: ColorsDifferent[2]})
+
+
+    print(information)
+    return information
+
+
+
 
 ## TEST for module
 #selectLineinData(data, 3)
-LabelInformation()
+checkdifferentsColor()
+#LabelInformation()
