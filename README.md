@@ -8,7 +8,7 @@ A Data extractor for excel to create diagram
 
 ## Install
 
-pip install flask
-pip install xlrd
-pip install turtle
-pip install svgwrite
+- pip install flask
+- pip install xlrd
+- pip install turtle
+- pip install svgwrite
