@@ -4,7 +4,7 @@ def drawDiagram():
 
     # Data in diagram
     nbRectangleInDiagram = countRectangleSection(data) #tab
-    nbLabelInRectangle = [3] #count for nb label in Rectangle
+    nbLabelInRectangle = [3] #count for nb label in Rectangle 
     
 
     x = -1000
@@ -120,9 +120,44 @@ def drawDiagram():
                 turtle.up()
 
                 b = b - 150 #y
-            
 
-    #write("mon_texte",False,align='Left',font=('Arial',16,'normal')).
+            # Rectangle Write
+            r = -860 #x
+            s = 820 #y 
+            for rectangleWrite in rectangle:
+                turtle.color('black') #color 
+                turtle.up()
+                turtle.goto(r,s) # pos
+                turtle.down()
+
+                turtle.forward(70) #Forward turtle by 150 units ( width )
+                turtle.left(90) #Turn turtle by 90 degree
+                turtle.forward(30) #Forward turtle by 80 units ( height )
+                turtle.left(90) #Turn turtle by 90 degree
+                turtle.forward(70) #Forward turtle by 150 units ( width )
+                turtle.left(90) #Turn turtle by 90 degree
+                turtle.forward(30) #Forward turtle by 80 units ( height )
+                turtle.left(90) #Turn turtle by 90 degree
+
+                turtle.up()
+                
+                s = s - 150 #y
+
+            # Rectangle Write
+            y = -840 #x
+            z = 825 #y 
+            for Write in rectangle:
+                turtle.color('black') #color 
+                turtle.up()
+                turtle.goto(y,z) # pos
+                turtle.down()
+
+                turtle.write("hello")
+                turtle.up()
+                
+                z = z - 150 #y
+
+            
 
 
     # test 
