@@ -520,6 +520,6 @@ div#maincontent {
 
 .draw{
   /*overflow: hidden;*/
-  margin: 0;
+  margin: 0px;
   padding: 10px;
 }
