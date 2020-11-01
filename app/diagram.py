@@ -5,6 +5,7 @@ import shutil
 import xlrd
 import turtle
 from turtle import *
+from collections import Counter
 #from Tkinter import *
 
 from random import randint
@@ -109,22 +110,23 @@ def checkdifferentsColor():
 
 #output : {node1: [label1, label5], node2:... }
 def nodeInformation():
-    # Check different line of data
     nodes = {}
-    n1 = 0
-    n2 = 0
+    i = 0
     numéroNoeudTable = 0 
+    table1 = {}
+    table2 = {}
+
     for line in data.values():
-        n1 = n1 + 1
-        for line2 in data.values():
-            # For each line, check if node1 == node2 of each other line  
-            # have a nod if line[5] == line[4] 
-            
-            if line[4] == line2[5]:
+        i = i + 1 
+        table1.update({i :line[4]})
+        table2.update({i :line[5]})
+    for key, value in table1.items():
+        for key2, value2 in table2.items():
+            if value2 == value:
+                print('miracle')
                 numéroNoeudTable = numéroNoeudTable + 1
-                nodes.update({numéroNoeudTable : [ n1 , n2 ]})
-        n2 = n2 + 1
-        # if node1 == node2 , update dict 
+                nodes.update({numéroNoeudTable : [ key , key2 ]})
+
     print(nodes)
     return nodes
 
