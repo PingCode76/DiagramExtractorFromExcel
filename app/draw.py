@@ -9,8 +9,8 @@ def drawingRectangle(x = -1000):
         turtle.goto(x, 400)
         turtle.down()
 
-        turtle.fillcolor('grey') # background color 
-        turtle.begin_fill() # begin color 
+        #turtle.fillcolor('grey') # background color 
+        #turtle.begin_fill() # begin color 
 
         turtle.forward(300) #Forward turtle by 150 units ( width )
         turtle.left(90) #Turn turtle by 90 degree
@@ -21,7 +21,7 @@ def drawingRectangle(x = -1000):
         turtle.forward(600) #Forward turtle by 80 units ( height )
         turtle.left(90) #Turn turtle by 90 degree
 
-        turtle.end_fill() # end color  
+        #turtle.end_fill() # end color  
         x = x + 400
 
 def drawingLabel(x,y):  #y = 800 at starting
@@ -32,8 +32,8 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.up()
     turtle.goto(x,y) # pos
     turtle.down()
-    turtle.fillcolor('white') # background color 
-    turtle.begin_fill() # begin color 
+    #turtle.fillcolor('white') # background color 
+    #turtle.begin_fill() # begin color 
 
     turtle.forward(150) #Forward turtle by 150 units ( width )
     turtle.left(90) #Turn turtle by 90 degree
@@ -44,7 +44,7 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.forward(100) #Forward turtle by 80 units ( height )
     turtle.left(90) #Turn turtle by 90 degree
 
-    turtle.end_fill() # end color 
+    #turtle.end_fill() # end color 
     turtle.up()
     #print("NbLabel")
 
@@ -127,7 +127,7 @@ def drawDiagram():
 
     labelGroup = LabelInformation()
 
-    xDraw = -1300   # -900 normal
+    xDraw = -1320   # -900 normal
     for i in labelGroup:
         print(labelGroup[i])
         # for each rectangle
@@ -136,12 +136,12 @@ def drawDiagram():
         xDraw = xDraw + 400
 
         # count how label
-        y = 800
+        y = 700 # 800 change 
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
             print('un label de dessinner')
             drawingLabel(xDraw, y)  # position y a changer 
-            y = y + 200
+            y = y + 150 # 200 change 
             print(i)
     
         # changer X au changement de rectangle 
