@@ -24,6 +24,7 @@ def drawingRectangle(x = -1000):
         #turtle.end_fill() # end color  
         x = x + 400
 
+
 def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at starting
     #print(x)
     #print(y)
@@ -129,6 +130,14 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.left(90) #Turn turtle by 90 degree
     turtle.up()
 
+def drawingNode():
+    nodes = nodeInformation()
+
+    # Import nodes
+    # for each nodes
+    # Find entry and position
+    # Drawing node
+    return
 
 
 def drawDiagram():
@@ -137,17 +146,14 @@ def drawDiagram():
 
     xDraw = -1320   # -900 normal
     for i in labelGroup:
-        #print(labelGroup[i])
         # for each rectangle
         drawingRectangle()
         # change pos draw
         xDraw = xDraw + 400
-
         # count how label
         y = 700 
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
-
             # get txt and node of label
             line = selectLineinData(i) 
             print(line)
@@ -168,3 +174,4 @@ def drawDiagram():
             drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode1 )  #inject here
             y = y + 150 
             #print(i)
+        drawingNode()
