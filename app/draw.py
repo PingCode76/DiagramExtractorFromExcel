@@ -23,6 +23,7 @@ def drawingRectangle(x = -1000):
         #turtle.end_fill() # end color  
         x = x + 400
 
+
 def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at starting
 
     #print(x)
@@ -133,6 +134,14 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.left(90) # 90 degree
     turtle.up()
 
+def drawingNode():
+    nodes = nodeInformation()
+
+    # Import nodes
+    # for each nodes
+    # Find entry and position
+    # Drawing node
+    return
 
 
 def drawDiagram():
@@ -147,12 +156,10 @@ def drawDiagram():
         drawingRectangle()
         # change pos draw
         xDraw = xDraw + 400
-
         # count how label
         y = 600
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
-
             # get txt and node of label
             line = selectLineinData(i) 
             print(line)
@@ -170,6 +177,10 @@ def drawDiagram():
             txtNode2 = line[5] # get txt node 2 - inject to drawingLabel
 
             #print('un label de dessinner')
+
             drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode2 )  #inject here
             y = y + 200
+            
             #print(i)
+        drawingNode()
+
