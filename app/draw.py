@@ -26,6 +26,7 @@ def drawingRectangle(x = -1000):
 
 def drawingLabel(x,y):  #y = 800 at starting
     print(x)
+    print(y)
     #x = -900#x -900
     turtle.color('green') #color 
     turtle.up()
