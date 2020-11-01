@@ -57,7 +57,7 @@ def drawDiagram():
 
             turtle.end_fill() # end color 
             turtle.up()
-            print("NbLabel")
+            #print("NbLabel")
 
             t = t +0 #x
             v = v - 150#y
