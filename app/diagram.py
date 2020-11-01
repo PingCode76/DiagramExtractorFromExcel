@@ -42,7 +42,7 @@ def countlabel(data):
     return LabelNumber
 
 # SELECT ONE LINE OF DATA  
-def selectLineinData(data, numberLine):
+def selectLineinData(numberLine):
     i = 0 
     for line in data.values():
         i = i + 1

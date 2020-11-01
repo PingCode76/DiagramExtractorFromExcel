@@ -24,9 +24,9 @@ def drawingRectangle(x = -1000):
         #turtle.end_fill() # end color  
         x = x + 400
 
-def drawingLabel(x,y):  #y = 800 at starting
-    print(x)
-    print(y)
+def drawingLabel(x,y, txtLabel):  #y = 800 at starting
+    #print(x)
+    #print(y)
     #x = -900#x -900
     turtle.color('green') #color 
     turtle.up()
@@ -46,8 +46,7 @@ def drawingLabel(x,y):  #y = 800 at starting
 
     turtle.end_fill() # end color 
     turtle.up()
-    #print("NbLabel")
-
+   
     #x = -900#x
     y = y + 25 #y # 800 
 
@@ -79,7 +78,7 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.goto(x,y) # pos
     turtle.down()
 
-    turtle.write("hello")
+    turtle.write(txtLabel)
     turtle.up()
 
     # color # depend data 
@@ -123,13 +122,14 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.up()
 
 
+
 def drawDiagram():
 
     labelGroup = LabelInformation()
 
     xDraw = -1320   # -900 normal
     for i in labelGroup:
-        print(labelGroup[i])
+        #print(labelGroup[i])
         # for each rectangle
         drawingRectangle()
         # change pos draw
@@ -139,8 +139,17 @@ def drawDiagram():
         y = 700 
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
-            print('un label de dessinner')
-            drawingLabel(xDraw, y)  
+
+            line = selectLineinData(i) #inject to drawingLabel function ( parameters )
+            print(line)
+            txtLabel = line[3] # get txt in DataLine
+            print(txtLabel)
+            
+            #print('un label de dessinner')
+            drawingLabel(xDraw, y , txtLabel)  #inject here
             y = y + 150 
-            print(i)
+            #print(i)
     
+        #dict = LabelInformation()
+        #LabelGroup = dict[rectangle]
+        #print(LabelGroup) 
