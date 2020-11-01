@@ -24,9 +24,10 @@ def drawingRectangle(x = -1000):
         turtle.end_fill() # end color  
         x = x + 400
 
-def drawingLabel(y):  #y = 800 at starting
-
-    x = -900#x -900
+def drawingLabel(x,y):  #y = 800 at starting
+    print(x)
+    print(y)
+    #x = -900#x -900
     turtle.color('green') #color 
     turtle.up()
     turtle.goto(x,y) # pos
@@ -47,7 +48,7 @@ def drawingLabel(y):  #y = 800 at starting
     turtle.up()
     #print("NbLabel")
 
-    x = -900#x
+    #x = -900#x
     y = y + 25 #y # 800 
 
     #node left
@@ -71,7 +72,7 @@ def drawingLabel(y):  #y = 800 at starting
     turtle.up()
     
     # Rectangle Write
-    x = -840 #x
+    x = x + 40 #x -900 + 60 = -840
 
     turtle.color('black') #color 
     turtle.up()
@@ -82,7 +83,7 @@ def drawingLabel(y):  #y = 800 at starting
     turtle.up()
 
     # color # depend data 
-    x = -860 #x
+    x = x - 10  #x 840 -> 860
     y = y + 45 #y #825
 
     turtle.color('black') #color 
@@ -104,7 +105,7 @@ def drawingLabel(y):  #y = 800 at starting
     turtle.up()
 
     # Rectangle Write
-    x = -860 #x
+    #x = -860 #x
     y = y - 50 #y 
 
     turtle.color('black') #color 
@@ -126,20 +127,20 @@ def drawDiagram():
 
     labelGroup = LabelInformation()
 
-    xDraw = -1000
+    xDraw = -1300   # -900 normal
     for i in labelGroup:
         print(labelGroup[i])
         # for each rectangle
         drawingRectangle()
         # changer la position de dessin
-        xDraw = xDraw - 400
+        xDraw = xDraw + 400
 
         # count how label
         y = 800
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
             print('un label de dessinner')
-            drawingLabel(y)  # position y a changer 
+            drawingLabel(xDraw, y)  # position y a changer 
             y = y + 200
             print(i)
     
