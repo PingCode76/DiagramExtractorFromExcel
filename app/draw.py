@@ -32,8 +32,8 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.up()
     turtle.goto(x,y) # pos
     turtle.down()
-    #turtle.fillcolor('white') # background color 
-    #turtle.begin_fill() # begin color 
+    turtle.fillcolor('white') # background color 
+    turtle.begin_fill() # begin color 
 
     turtle.forward(150) #Forward turtle by 150 units ( width )
     turtle.left(90) #Turn turtle by 90 degree
@@ -44,7 +44,7 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.forward(100) #Forward turtle by 80 units ( height )
     turtle.left(90) #Turn turtle by 90 degree
 
-    #turtle.end_fill() # end color 
+    turtle.end_fill() # end color 
     turtle.up()
     #print("NbLabel")
 
@@ -132,16 +132,15 @@ def drawDiagram():
         print(labelGroup[i])
         # for each rectangle
         drawingRectangle()
-        # changer la position de dessin
+        # change pos draw
         xDraw = xDraw + 400
 
         # count how label
-        y = 700 # 800 change 
+        y = 700 
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
             print('un label de dessinner')
-            drawingLabel(xDraw, y)  # position y a changer 
-            y = y + 150 # 200 change 
+            drawingLabel(xDraw, y)  
+            y = y + 150 
             print(i)
     
-        # changer X au changement de rectangle 
