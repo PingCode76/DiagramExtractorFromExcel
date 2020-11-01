@@ -25,9 +25,7 @@ def drawingRectangle(x = -1000):
         x = x + 400
 
 def drawingLabel(x,y):  #y = 800 at starting
-    print(x)
-    print(y)
-    #x = -900#x -900
+
     turtle.color('green') #color 
     turtle.up()
     turtle.goto(x,y) # pos
@@ -123,24 +121,31 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.up()
 
 
+def drawingNode():
+    nodes = nodeInformation()
+
+    # Import nodes
+    # for each nodes
+    # Find entry and position
+    # Drawing node
+    return
+
+
 def drawDiagram():
 
     labelGroup = LabelInformation()
 
     xDraw = -1320   # -900 normal
     for i in labelGroup:
-        print(labelGroup[i])
         # for each rectangle
         drawingRectangle()
         # change pos draw
         xDraw = xDraw + 400
-
         # count how label
         y = 700 
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
-            print('un label de dessinner')
             drawingLabel(xDraw, y)  
             y = y + 150 
-            print(i)
+    drawingNode()
     

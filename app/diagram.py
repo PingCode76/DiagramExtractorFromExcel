@@ -42,7 +42,7 @@ def countlabel(data):
     return LabelNumber
 
 # SELECT ONE LINE OF DATA  
-def selectLineinData(data, numberLine):
+def selectLineinData(numberLine):
     i = 0 
     for line in data.values():
         i = i + 1
@@ -118,10 +118,8 @@ def nodeInformation():
     for key, value in table1.items():
         for key2, value2 in table2.items():
             if value2 == value:
-                print('miracle')
                 numéroNoeudTable = numéroNoeudTable + 1
                 nodes.update({numéroNoeudTable : [ key , key2 ]})
-
     print(nodes)
     return nodes
 
