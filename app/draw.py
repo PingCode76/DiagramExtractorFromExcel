@@ -1,8 +1,7 @@
 from .diagram import * 
 
 def drawingRectangle(x = -1000):
-    #print(nbRectangleInDiagram) # 3 
-
+   
     for rectangle in LabelInformation():
         turtle.color('green')
         turtle.up()
@@ -12,23 +11,26 @@ def drawingRectangle(x = -1000):
         #turtle.fillcolor('grey') # background color 
         #turtle.begin_fill() # begin color 
 
-        turtle.forward(300) #Forward turtle by 150 units ( width )
-        turtle.left(90) #Turn turtle by 90 degree
-        turtle.forward(600) #Forward turtle by 80 units ( height )
-        turtle.left(90) #Turn turtle by 90 degree
-        turtle.forward(300) #Forward turtle by 150 units ( width )
-        turtle.left(90) #Turn turtle by 90 degree
-        turtle.forward(600) #Forward turtle by 80 units ( height )
-        turtle.left(90) #Turn turtle by 90 degree
+        turtle.forward(350) # ( width )
+        turtle.left(90) # 90 degree
+        turtle.forward(600) # ( height )
+        turtle.left(90) # 90 degree
+        turtle.forward(350) # ( width )
+        turtle.left(90) # 90 degree
+        turtle.forward(600) # ( height )
+        turtle.left(90) # 90 degree
 
         #turtle.end_fill() # end color  
         x = x + 400
 
 
 def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at starting
+
     #print(x)
     #print(y)
-    #x = -900#x -900
+
+    ## LABEL 
+
     turtle.color('green') #color 
     turtle.up()
     turtle.goto(x,y) # pos
@@ -36,51 +38,54 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.fillcolor('white') # background color 
     turtle.begin_fill() # begin color 
 
-    turtle.forward(150) #Forward turtle by 150 units ( width )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(100) #Forward turtle by 80 units ( height )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(150) #Forward turtle by 150 units ( width )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(100) #Forward turtle by 80 units ( height )
-    turtle.left(90) #Turn turtle by 90 degree
+    turtle.forward(250) # ( width )
+    turtle.left(90) # 90 degree
+    turtle.forward(150) # ( height )
+    turtle.left(90) # 90 degree
+    turtle.forward(250) # ( width )
+    turtle.left(90) # 90 degree
+    turtle.forward(150) # ( height )
+    turtle.left(90) # 90 degree
 
     turtle.end_fill() # end color 
     turtle.up()
    
-    #x = -900#x
-    y = y + 25 #y # 800 
-
-    #node left
+    y = y + 45 
+    ## NODE
+    # NODE LEFT
     turtle.goto(x,y)
     turtle.down()
     turtle.color('blue') # color 
     turtle.fillcolor('blue')
     turtle.begin_fill()
-    turtle.circle(25) #50 good 
+    turtle.circle(25)  
     turtle.end_fill() 
 
+    turtle.goto(x-15,y+17) #go to for write
     turtle.color('white') # color txt
     turtle.write(txtNode1)
 
     turtle.up()
 
-    #node right 
-    turtle.goto(x+150,y) # n + width + rayon 
+    # NODE RIGHT
+    turtle.goto(x+250,y) # x + width + rayon 
     turtle.down()
     turtle.color('blue')
     turtle.fillcolor('blue')
     turtle.begin_fill()
-    turtle.circle(25) #50 good 
+    turtle.circle(25) 
     turtle.end_fill() 
 
+    turtle.up()
+    turtle.goto(x+235,y+13) #go to for write # test
+    turtle.down()
     turtle.color('white') # color txt
     turtle.write(txtNode2)
 
     turtle.up()
     
-    # Rectangle Write
-    x = x + 40 #x -900 + 60 = -840
+    ## WRITE IN "RECTANGLE FOR WRITE"
+    x = x + 40 
 
     turtle.color('black') #color 
     turtle.up()
@@ -90,7 +95,7 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.write(txtLabel)
     turtle.up()
 
-    # color # depend data 
+    ## COLOR
     x = x - 10  #x 840 -> 860
     y = y + 45 #y #825
 
@@ -100,34 +105,33 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.down()
     turtle.fillcolor(colorLabel) # background color 
     turtle.begin_fill() # begin color 
-    turtle.forward(70) #Forward turtle by 150 units ( width )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(10) #Forward turtle by 80 units ( height )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(70) #Forward turtle by 150 units ( width )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(10) #Forward turtle by 80 units ( height )
-    turtle.left(90) #Turn turtle by 90 degree
+    turtle.forward(180) # ( width )
+    turtle.left(90) # 90 degree
+    turtle.forward(10) # ( height )
+    turtle.left(90) # 90 degree
+    turtle.forward(180) # ( width )
+    turtle.left(90) # 90 degree
+    turtle.forward(10) # ( height )
+    turtle.left(90) # 90 degree
 
     turtle.end_fill() # end color 
     turtle.up()
 
-    # Rectangle Write
-    #x = -860 #x
-    y = y - 50 #y 
+    ##  RECTANGLE FOR WRITE
+    y = y - 60 
 
     turtle.color('black') #color 
     turtle.up()
     turtle.goto(x,y) # pos
     turtle.down()
-    turtle.forward(70) #Forward turtle by 150 units ( width )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(30) #Forward turtle by 80 units ( height )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(70) #Forward turtle by 150 units ( width )
-    turtle.left(90) #Turn turtle by 90 degree
-    turtle.forward(30) #Forward turtle by 80 units ( height )
-    turtle.left(90) #Turn turtle by 90 degree
+    turtle.forward(180) # ( width )
+    turtle.left(90) # 90 degree
+    turtle.forward(50) # ( height )
+    turtle.left(90) # 90 degree
+    turtle.forward(180) # ( width )
+    turtle.left(90) # 90 degree
+    turtle.forward(50) # ( height )
+    turtle.left(90) # 90 degree
     turtle.up()
 
 def drawingNode():
@@ -144,14 +148,16 @@ def drawDiagram():
 
     labelGroup = LabelInformation()
 
-    xDraw = -1320   # -900 normal
+    xDraw = -1350
     for i in labelGroup:
+        #print(labelGroup[i])
+        
         # for each rectangle
         drawingRectangle()
         # change pos draw
         xDraw = xDraw + 400
         # count how label
-        y = 700 
+        y = 600
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
             # get txt and node of label
@@ -168,10 +174,13 @@ def drawDiagram():
             # get txt node 1
             txtNode1 = line[4] # get txt node 1 - inject to drawingLabel
             # get txt node 
-            txtNode1 = line[5] # get txt node 2 - inject to drawingLabel
+            txtNode2 = line[5] # get txt node 2 - inject to drawingLabel
 
             #print('un label de dessinner')
-            drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode1 )  #inject here
-            y = y + 150 
+
+            drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode2 )  #inject here
+            y = y + 200
+            
             #print(i)
         drawingNode()
+
