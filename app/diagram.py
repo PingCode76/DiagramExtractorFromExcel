@@ -6,8 +6,6 @@ import xlrd
 import turtle
 from turtle import *
 from collections import Counter
-#from Tkinter import *
-
 from random import randint
 
 data = {
@@ -81,7 +79,6 @@ def createTableColor():
             table.append(line[2])
     return table
 
-
 # output : 1 : red, 2: yellow
 def checkdifferentsColor():
     information = {}
@@ -89,7 +86,6 @@ def checkdifferentsColor():
     i = 0   
     n = 0
     table = createTableColor()
-    # table = ['Col', 'Tra', 'Fer']
 
     # attribute colors
     for line in data.values():
@@ -104,7 +100,6 @@ def checkdifferentsColor():
         if table[2]:
             if line[2] == table[2]:
                 information.update({i: ColorsDifferent[2]})
-
     print(information)
     return information
 
@@ -135,4 +130,4 @@ def nodeInformation():
 #selectLineinData(data, 3)
 #checkdifferentsColor()
 #LabelInformation()
-nodeInformation()
+#nodeInformation()
