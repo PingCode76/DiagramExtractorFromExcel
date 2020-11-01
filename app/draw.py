@@ -24,8 +24,11 @@ def drawingRectangle(x = -1000):
         #turtle.end_fill() # end color  
         x = x + 400
 
-def drawingLabel(x,y):  #y = 800 at starting
 
+def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at starting
+    #print(x)
+    #print(y)
+    #x = -900#x -900
     turtle.color('green') #color 
     turtle.up()
     turtle.goto(x,y) # pos
@@ -44,8 +47,7 @@ def drawingLabel(x,y):  #y = 800 at starting
 
     turtle.end_fill() # end color 
     turtle.up()
-    #print("NbLabel")
-
+   
     #x = -900#x
     y = y + 25 #y # 800 
 
@@ -57,6 +59,10 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.begin_fill()
     turtle.circle(25) #50 good 
     turtle.end_fill() 
+
+    turtle.color('white') # color txt
+    turtle.write(txtNode1)
+
     turtle.up()
 
     #node right 
@@ -67,6 +73,10 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.begin_fill()
     turtle.circle(25) #50 good 
     turtle.end_fill() 
+
+    turtle.color('white') # color txt
+    turtle.write(txtNode2)
+
     turtle.up()
     
     # Rectangle Write
@@ -77,7 +87,7 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.goto(x,y) # pos
     turtle.down()
 
-    turtle.write("hello")
+    turtle.write(txtLabel)
     turtle.up()
 
     # color # depend data 
@@ -88,7 +98,7 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.up()
     turtle.goto(x,y) # pos
     turtle.down()
-    turtle.fillcolor('red') # background color 
+    turtle.fillcolor(colorLabel) # background color 
     turtle.begin_fill() # begin color 
     turtle.forward(70) #Forward turtle by 150 units ( width )
     turtle.left(90) #Turn turtle by 90 degree
@@ -120,7 +130,6 @@ def drawingLabel(x,y):  #y = 800 at starting
     turtle.left(90) #Turn turtle by 90 degree
     turtle.up()
 
-
 def drawingNode():
     nodes = nodeInformation()
 
@@ -145,7 +154,24 @@ def drawDiagram():
         y = 700 
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
-            drawingLabel(xDraw, y)  
+            # get txt and node of label
+            line = selectLineinData(i) 
+            print(line)
+            txtLabel = line[3] # get txt in DataLine - inject to drawingLabel
+            print(txtLabel)
+
+            # get color of label
+            color = checkdifferentsColor()
+            colorLabel = color[i] # get color - inject to drawingLabel
+            print(color[i])
+            
+            # get txt node 1
+            txtNode1 = line[4] # get txt node 1 - inject to drawingLabel
+            # get txt node 
+            txtNode1 = line[5] # get txt node 2 - inject to drawingLabel
+
+            #print('un label de dessinner')
+            drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode1 )  #inject here
             y = y + 150 
-    drawingNode()
-    
+            #print(i)
+        drawingNode()
