@@ -92,7 +92,8 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.goto(x,y) # pos
     turtle.down()
 
-    turtle.write(txtLabel)
+
+    turtle.write(txtLabel[0:27]) # 15 first character
     turtle.up()
 
     ## COLOR
@@ -162,14 +163,14 @@ def drawDiagram():
         for i in labelGroup[i]:
             # get txt and node of label
             line = selectLineinData(i) 
-            print(line)
+            #print(line)
             txtLabel = line[3] # get txt in DataLine - inject to drawingLabel
-            print(txtLabel)
+            #print(txtLabel)
 
             # get color of label
             color = checkdifferentsColor()
             colorLabel = color[i] # get color - inject to drawingLabel
-            print(color[i])
+            #print(color[i])
             
             # get txt node 1
             txtNode1 = line[4] # get txt node 1 - inject to drawingLabel
