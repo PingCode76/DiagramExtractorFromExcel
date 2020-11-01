@@ -24,7 +24,7 @@ def drawingRectangle(x = -1000):
         #turtle.end_fill() # end color  
         x = x + 400
 
-def drawingLabel(x,y, txtLabel, colorLabel):  #y = 800 at starting
+def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at starting
     #print(x)
     #print(y)
     #x = -900#x -900
@@ -58,6 +58,10 @@ def drawingLabel(x,y, txtLabel, colorLabel):  #y = 800 at starting
     turtle.begin_fill()
     turtle.circle(25) #50 good 
     turtle.end_fill() 
+
+    turtle.color('white') # color txt
+    turtle.write(txtNode1)
+
     turtle.up()
 
     #node right 
@@ -68,6 +72,10 @@ def drawingLabel(x,y, txtLabel, colorLabel):  #y = 800 at starting
     turtle.begin_fill()
     turtle.circle(25) #50 good 
     turtle.end_fill() 
+
+    turtle.color('white') # color txt
+    turtle.write(txtNode2)
+
     turtle.up()
     
     # Rectangle Write
@@ -151,7 +159,12 @@ def drawDiagram():
             colorLabel = color[i] # get color - inject to drawingLabel
             print(color[i])
             
+            # get txt node 1
+            txtNode1 = line[4] # get txt node 1 - inject to drawingLabel
+            # get txt node 
+            txtNode1 = line[5] # get txt node 2 - inject to drawingLabel
+
             #print('un label de dessinner')
-            drawingLabel(xDraw, y , txtLabel , colorLabel )  #inject here
+            drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode1 )  #inject here
             y = y + 150 
             #print(i)
