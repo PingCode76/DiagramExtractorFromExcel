@@ -22,17 +22,20 @@ data = {
 
 # format data for select id_function
 def formatData():
-    i = 1
+    i = -1
+
     letter = ['a','b','c','d','e','f','g','h','i','j','k','l']
+    
+    tableToDelete = []
     for line in data.values():    #for key2, value2 in table2.items():
         i = i + 1
-        if line[0] != 1:
-            print('line deleted')
-            #del data[letter[i]]
-
-    print(data)
+        if line[0] != '1':
+            tableToDelete.append(i)
+    for nb in tableToDelete:
+        del data[letter[nb]]
     return data
 data = formatData()
+print(data)
 
 def countDiagramNumber():
     list = []
@@ -45,11 +48,6 @@ def countDiagramNumber():
     return len(outputList)
 
 countDiagramNumber()
-
-
-def separateDiagram():
-    nbDiagram = countDiagramNumber()
-    return
 
 # Count a all name and number of sequence type #OUTPUT : '
 def countRectangleSection(data):
@@ -93,11 +91,14 @@ def LabelInformation():
     for rect in RectangleNumber:
         entry = [] 
         i = 0
+        #print(data) #data est formaté
         for line in data.values():
-            i = i + 1
+            
             if rect == line[1]:
                 entry.append(i)
+            i = i + 1
         information.update({ rect : entry })
+    print(information)
     return information
     
 # intern function, do not use in draw.py
