@@ -19,13 +19,43 @@ data = {
         "g":["2","2","Tra","Ipsum proin quis tortora maxima Aenean lobortis","KJ65","HF32"],
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
     }
-  
+
+# format data for select id_function
+def formatData():
+    i = -1
+
+    letter = ['a','b','c','d','e','f','g','h','i','j','k','l']
+    
+    tableToDelete = []
+    for line in data.values():    #for key2, value2 in table2.items():
+        i = i + 1
+        if line[0] != '1':
+            tableToDelete.append(i)
+    for nb in tableToDelete:
+        del data[letter[nb]]
+    return data
+data = formatData()
+print(data)
+
+def countDiagramNumber():
+    list = []
+    outputList = []
+    for line in data.values():
+        list.append(line[0])
+    for element in list:
+        if element not in outputList:
+            outputList.append(element)
+    return len(outputList)
+
+countDiagramNumber()
+
 # Count a all name and number of sequence type #OUTPUT : '
 def countRectangleSection(data):
     WordList = ''
     RectangleName = []
     for line in data.values():
-        WordList = WordList + line[1] + ' ' #1 Select a Sequence type
+        if line[0] == '1':
+            WordList = WordList + line[1] + ' ' #1 Select a Sequence type
     for mot in WordList.split():
         if mot in WordList:
             WordList = WordList.replace(mot, '')
@@ -37,8 +67,9 @@ def countlabel(data):
     LabelNumber = 0
     WordList = ''
     for line in data.values():
-        WordList = WordList + line[2] + ' '
-        LabelNumber = LabelNumber + 1
+        if line[0] == '1':
+            WordList = WordList + line[1] + ' '
+            LabelNumber = LabelNumber + 1
     return LabelNumber
 
 # SELECT ONE LINE OF DATA  
@@ -54,17 +85,20 @@ def selectLineinData(numberLine):
 def LabelInformation():
     information = {}
     RectangleNumber = countRectangleSection(data) #Rectange number
+    if len(RectangleNumber) > 3:
+        RectangleNumber = ['1', '2', '3']
+    # momently
     for rect in RectangleNumber:
         entry = [] 
         i = 0
+        #print(data) #data est formaté
         for line in data.values():
-            i = i + 1
+            
             if rect == line[1]:
                 entry.append(i)
+            i = i + 1
         information.update({ rect : entry })
-
     print(information)
-
     return information
     
 # intern function, do not use in draw.py
@@ -100,7 +134,6 @@ def checkdifferentsColor():
         if table[2]:
             if line[2] == table[2]:
                 information.update({i: ColorsDifferent[2]})
-    print(information)
     return information
 
 #output : {node1: [label1, label5], node2:... }
@@ -120,12 +153,8 @@ def nodeInformation():
             if value2 == value:
                 numéroNoeudTable = numéroNoeudTable + 1
                 nodes.update({numéroNoeudTable : [ key , key2 ]})
-    print(nodes)
     return nodes
 
 
 ## TEST for module
-#selectLineinData(data, 3)
-#checkdifferentsColor()
-#LabelInformation()
-#nodeInformation()
+

@@ -235,5 +235,3 @@ def drawDiagram():
             y = y + 200
             
             #print(i)
-        #drawingNode(xDraw,y) # sans argument 
-
