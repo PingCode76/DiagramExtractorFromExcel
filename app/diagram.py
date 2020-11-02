@@ -25,7 +25,7 @@ def countRectangleSection(data):
     WordList = ''
     RectangleName = []
     for line in data.values():
-        WordList = WordList + line[1] + ' ' #1 Select a Sequence type
+        WordList = WordList + line[0] + ' ' #1 Select a Sequence type
     for mot in WordList.split():
         if mot in WordList:
             WordList = WordList.replace(mot, '')
@@ -62,9 +62,6 @@ def LabelInformation():
             if rect == line[1]:
                 entry.append(i)
         information.update({ rect : entry })
-
-    print(information)
-
     return information
     
 # intern function, do not use in draw.py
@@ -100,7 +97,6 @@ def checkdifferentsColor():
         if table[2]:
             if line[2] == table[2]:
                 information.update({i: ColorsDifferent[2]})
-    print(information)
     return information
 
 #output : {node1: [label1, label5], node2:... }
@@ -120,12 +116,8 @@ def nodeInformation():
             if value2 == value:
                 numéroNoeudTable = numéroNoeudTable + 1
                 nodes.update({numéroNoeudTable : [ key , key2 ]})
-    print(nodes)
     return nodes
 
 
 ## TEST for module
-#selectLineinData(data, 3)
-#checkdifferentsColor()
-#LabelInformation()
-#nodeInformation()
+
