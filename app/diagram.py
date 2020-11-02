@@ -19,13 +19,45 @@ data = {
         "g":["2","2","Tra","Ipsum proin quis tortora maxima Aenean lobortis","KJ65","HF32"],
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
     }
-  
+
+# format data for select id_function
+def formatData():
+    i = 1
+    letter = ['a','b','c','d','e','f','g','h','i','j','k','l']
+    for line in data.values():    #for key2, value2 in table2.items():
+        i = i + 1
+        if line[0] != 1:
+            print('line deleted')
+            #del data[letter[i]]
+
+    print(data)
+    return data
+data = formatData()
+
+def countDiagramNumber():
+    list = []
+    outputList = []
+    for line in data.values():
+        list.append(line[0])
+    for element in list:
+        if element not in outputList:
+            outputList.append(element)
+    return len(outputList)
+
+countDiagramNumber()
+
+
+def separateDiagram():
+    nbDiagram = countDiagramNumber()
+    return
+
 # Count a all name and number of sequence type #OUTPUT : '
 def countRectangleSection(data):
     WordList = ''
     RectangleName = []
     for line in data.values():
-        WordList = WordList + line[0] + ' ' #1 Select a Sequence type
+        if line[0] == '1':
+            WordList = WordList + line[1] + ' ' #1 Select a Sequence type
     for mot in WordList.split():
         if mot in WordList:
             WordList = WordList.replace(mot, '')
@@ -37,8 +69,9 @@ def countlabel(data):
     LabelNumber = 0
     WordList = ''
     for line in data.values():
-        WordList = WordList + line[2] + ' '
-        LabelNumber = LabelNumber + 1
+        if line[0] == '1':
+            WordList = WordList + line[1] + ' '
+            LabelNumber = LabelNumber + 1
     return LabelNumber
 
 # SELECT ONE LINE OF DATA  
@@ -54,6 +87,9 @@ def selectLineinData(numberLine):
 def LabelInformation():
     information = {}
     RectangleNumber = countRectangleSection(data) #Rectange number
+    if len(RectangleNumber) > 3:
+        RectangleNumber = ['1', '2', '3']
+    # momently
     for rect in RectangleNumber:
         entry = [] 
         i = 0
