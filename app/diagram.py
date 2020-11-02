@@ -22,15 +22,15 @@ data = {
 
 # format data for select id_function
 def formatData():
-    i = -1
+    i = 0
 
     letter = ['a','b','c','d','e','f','g','h','i','j','k','l']
     
     tableToDelete = []
     for line in data.values():    #for key2, value2 in table2.items():
-        i = i + 1
         if line[0] != '1':
             tableToDelete.append(i)
+        i = i + 1
     for nb in tableToDelete:
         del data[letter[nb]]
     return data
@@ -54,12 +54,16 @@ def countRectangleSection(data):
     WordList = ''
     RectangleName = []
     for line in data.values():
-        if line[0] == '1':
-            WordList = WordList + line[1] + ' ' #1 Select a Sequence type
+        WordList = WordList + line[2] + ' ' #1 Select a Sequence type
     for mot in WordList.split():
         if mot in WordList:
             WordList = WordList.replace(mot, '')
             RectangleName.append(mot)
+    
+    #Set maximum rectangle at 3
+    #if len(RectangleName) > 3:
+        #RectangleName = ['1', '2', '3']
+
     return RectangleName
 
 #Count a number of label ( entry line in table )
@@ -79,24 +83,22 @@ def selectLineinData(numberLine):
         i = i + 1
         if numberLine == i:
             return line
+        
 
 # find which label belongs to which rectangle    
-# output : { rect1:[label1 ,label2], rect2:[label3,label4]}  
+# output : { col:[label1 ,label2], tra:[label3,label4]}  
 def LabelInformation():
     information = {}
-    RectangleNumber = countRectangleSection(data) #Rectange number
-    if len(RectangleNumber) > 3:
-        RectangleNumber = ['1', '2', '3']
-    # momently
+    RectangleNumber = countRectangleSection(data) 
+
     for rect in RectangleNumber:
         entry = [] 
         i = 0
-        #print(data) #data est formaté
+        print(rect)
         for line in data.values():
-            
-            if rect == line[1]:
-                entry.append(i)
             i = i + 1
+            if rect == line[2]:    #si rect ( 1,2 ou 3) == a une sequence ( 1,2,3,4,5) 
+                entry.append(i)
         information.update({ rect : entry })
     print(information)
     return information
