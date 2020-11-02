@@ -184,4 +184,3 @@ def drawDiagram():
             
             #print(i)
         drawingNode()
-
