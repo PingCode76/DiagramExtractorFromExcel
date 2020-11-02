@@ -135,15 +135,60 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.left(90) # 90 degree
     turtle.up()
 
-def drawingNode():
-    nodes = nodeInformation()
-
+def drawingNode(xDraw,y,NumberOfLabel):
     # Import nodes
-    # for each nodes
-    # Find entry and position
-    # Drawing node
-    return
+    nodes = nodeInformation() #output : {node1: [label1, label5], node2:... }
+    LabelInfo = LabelInformation()
 
+    #print(" nodes" )
+    #print(nodes) #output : {node1: [label1, label5], node2:... }
+
+    #print(" label info" )
+    #print(LabelInfo) 
+
+    # for each nodes
+    for node in nodes: # 
+        #print(" nodes i" )
+        #print( nodes[node] ) # i = chaque noeuds node i [ label x , label y ]
+
+        print("LabelInfo")
+        print(LabelInfo)  # pour le rectangle 1 on a le label 1 et 6 , 2->2 & 7 
+        print(LabelInfo['1']) # rectangle 1 
+        print(LabelInfo['1'][0]) # Premier Label Numero 6 du premier rectangle 
+        print(LabelInfo['1'][1]) # Deuxiéme label du premier rectangle
+       
+       # good 
+        print("nodes")
+        print(nodes) # le noeud i doit etre relié au label x et y 
+
+        print("nodes numéro 2 a l'entré ")
+        print(nodes[2][0])   #nodes[numéro du noeud], [0entré/1sortie]
+
+        print("nodes numéro 2 a la sortie ")
+        print(nodes[2][1])
+        
+        #print(" NumberOfLabel" )
+        #print(NumberOfLabel) # doit etre le numéro de ligne dans le tableau 
+            
+        # Si le numéro de la ligne du tableau  est égal a un numéro de la ligne qui provient de node alors , on rejouint les deux labels 
+            #if NumberOfLabel == lineNode[i]:
+        if nodes[node][1] == LabelInfo['1'][0]: # le noeud 1 doit etre relié au label x et y 
+            print("hello condition vérifier")
+    
+            # Drawing node
+            # LINK
+            # LABEL 1  #get position label 1 
+            #print (xDraw)
+            #print (y) 
+            turtle.goto(xDraw+250,y)
+            turtle.down()
+            turtle.color('red') # color 
+            turtle.circle(35)  
+            turtle.forward(150) # ( width )
+            turtle.circle(35)  
+            #turtle.end_fill() 
+            turtle.up()
+    return
 
 def drawDiagram():
 
@@ -163,6 +208,7 @@ def drawDiagram():
         for i in labelGroup[i]:
             # get txt and node of label
             line = selectLineinData(i) 
+
             #print(line)
             txtLabel = line[3] # get txt in DataLine - inject to drawingLabel
             #print(txtLabel)
@@ -177,10 +223,15 @@ def drawDiagram():
             # get txt node 
             txtNode2 = line[5] # get txt node 2 - inject to drawingLabel
 
-            #print('un label de dessinner')
-
             drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode2 )  #inject here
+
+            # TEST for get label line 
+            NumberOfLabel = 2 # get line of label ( drawing node ) retrouver la ligne qu'on trouve dans node 1 : [1,5] retrouver 1 et 5 
+            #print(NumberOfLabel)
+            #print("line") 
+            #print(line)
+
+            drawingNode(xDraw,y,NumberOfLabel) 
             y = y + 200
             
             #print(i)
-        drawingNode()
