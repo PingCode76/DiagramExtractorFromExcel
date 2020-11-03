@@ -22,12 +22,17 @@ def encode_file(filename, size):
     drawDiagram()
     drawing.save()
 
+def change_id_function(id_function):
+    dataCurrent = formatData(id_function)
+    return dataCurrent
+
 
 numberFunctiontoDraw = countDiagramNumber()
 nbDraw = 0
 print(str(numberFunctiontoDraw) + " fonction a encoer")
 while nbDraw < numberFunctiontoDraw :
-    print("Encodage numéro" + str(nbDraw))
+    change_id_function(nbDraw)
+    print("Encodage numéro " + str(nbDraw + 1))
     path="app/static/img/diagram" + str(nbDraw + 1) + ".svg"
     if os.path.exists(path):
         os.remove(path)
