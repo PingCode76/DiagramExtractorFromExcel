@@ -130,8 +130,8 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.left(90) # 90 degree
     turtle.up()
 
-def drawingNode(xDraw,y,i,nbDraw):
-
+def drawingNode(xDraw,y,i,nbDraw,nbLabel):
+    
     # Import nodes
     nodes = nodeInformation(nbDraw) #output : {node1: [label1, label5], node2:... }
     LabelInfo = LabelInformation(nbDraw)
@@ -144,7 +144,7 @@ def drawingNode(xDraw,y,i,nbDraw):
     
             print(y)
             # face to face
-            if nodes[node][1] == i & nodes[node][0] == i :
+            if nodes[node][1] == i & nodes[node][0] == i or nbLabel == 1 : 
                 turtle.goto(xDraw+275,y+65)
                 turtle.down()
                 turtle.color('white') # color 
@@ -152,9 +152,9 @@ def drawingNode(xDraw,y,i,nbDraw):
                 turtle.forward(150) # ( width )
                 turtle.pensize(-5.5)
                 turtle.up()
-
+ 
             # top for bottom
-            if y == 800:
+            if y == 800 and nbLabel != 1 or nbLabel == 1 & nodes[node][0] == i  :
                 turtle.goto(xDraw+273,y+65) # y = 45 
                 turtle.down()
                 turtle.color('white') # color 
@@ -166,7 +166,7 @@ def drawingNode(xDraw,y,i,nbDraw):
                 turtle.up()
 
             # bottom for top
-            if y == 600 :
+            if y == 600 and nbLabel != 1 :
                 turtle.goto(xDraw+250,y+95)
                 turtle.down()
                 turtle.color('white') # color 
@@ -218,7 +218,7 @@ def drawDiagram(nbDraw):
                 y = 800
             drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode2 )  #inject here
 
-            drawingNode(xDraw,y,i,nbDraw) 
+            drawingNode(xDraw,y,i,nbDraw,nbLabel) 
             y = y + 200
             
 
