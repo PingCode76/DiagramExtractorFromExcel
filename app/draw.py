@@ -221,6 +221,7 @@ def drawDiagram(nbDraw):
 
             # get color of label
             color = checkdifferentsColor(nbDraw)
+            
             colorLabel = color[i] # get color - inject to drawingLabel
             #print(color[i])
             
