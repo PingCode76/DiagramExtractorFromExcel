@@ -26,11 +26,6 @@ def drawingRectangle(x = -1000):
 
 def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at starting
 
-    #print(x)
-    #print(y)
-
-    ## LABEL 
-
     turtle.color('green') #color 
     turtle.up()
     turtle.goto(x,y) # pos
@@ -142,7 +137,6 @@ def drawingNode():
     # for each nodes
     # Find entry and position
     # Drawing node
-    return
 
 
 def drawDiagram():
@@ -162,7 +156,9 @@ def drawDiagram():
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
             # get txt and node of label
-            line = selectLineinData(i) 
+
+            line = selectLineinData(int(i))
+
             #print(line)
             txtLabel = line[3] # get txt in DataLine - inject to drawingLabel
             #print(txtLabel)
@@ -184,3 +180,4 @@ def drawDiagram():
             
             #print(i)
         drawingNode()
+    #turtle.bye()

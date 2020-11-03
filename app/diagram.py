@@ -7,8 +7,11 @@ import turtle
 from turtle import *
 from collections import Counter
 from random import randint
+#from .utils import getData
+#import utils
 
-data = {
+def getData():
+    data = {
         # line : id_function, Sequence, Operation Type, Description, Node1, Node2 
         "a":["1","1","Col","Lorem ipsum dolor sit amet, consectetur adipiscing elit","AX23","BY12"], 
         "b":["1","2","Tra","Donec fringilla, erat non suscipit faucibus, léo mi porta enim","BY12","CF43"],
@@ -18,31 +21,36 @@ data = {
         "f":["2","1","Col","Cras Suscipit hendrerit feugiat Viva porta sed consecta","AB56","KJ65"],
         "g":["2","2","Tra","Ipsum proin quis tortora maxima Aenean lobortis","KJ65","HF32"],
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
-    }
+        }
+    return data
+
 
 # format data for select id_function
-def formatData():
+
+def formatData(nbFunction):
     i = 0
 
     letter = ['a','b','c','d','e','f','g','h','i','j','k','l']
     
     tableToDelete = []
+    data = getData()
     for line in data.values():    #for key2, value2 in table2.items():
-        if line[0] != '1':
+        if line[0] != str(nbFunction):
             tableToDelete.append(i)
         i = i + 1
     for nb in tableToDelete:
         del data[letter[nb]]
     return data
-data = formatData()
-print(data)
+
+data = formatData(1)  #change every loop
+
 
 def countDiagramNumber():
-    list = []
+    listData = []
     outputList = []
     for line in data.values():
-        list.append(line[0])
-    for element in list:
+        listData.append(line[0])
+    for element in listData:
         if element not in outputList:
             outputList.append(element)
     return len(outputList)
@@ -50,7 +58,7 @@ def countDiagramNumber():
 countDiagramNumber()
 
 # Count a all name and number of sequence type #OUTPUT : '
-def countRectangleSection(data):
+def countRectangleSection():
     WordList = ''
     RectangleName = []
     for line in data.values():
@@ -67,39 +75,37 @@ def countRectangleSection(data):
     return RectangleName
 
 #Count a number of label ( entry line in table )
-def countlabel(data):
+def countlabel():
     LabelNumber = 0
     WordList = ''
     for line in data.values():
-        if line[0] == '1':
-            WordList = WordList + line[1] + ' '
-            LabelNumber = LabelNumber + 1
+        #if line[0] == '1':
+        WordList = WordList + line[2] + ' '
+        LabelNumber = LabelNumber + 1
     return LabelNumber
 
 # SELECT ONE LINE OF DATA  
 def selectLineinData(numberLine):
-    i = 0 
+    i = 0
     for line in data.values():
         i = i + 1
         if numberLine == i:
             return line
-        
-
 # find which label belongs to which rectangle    
 # output : { col:[label1 ,label2], tra:[label3,label4]}  
 def LabelInformation():
     information = {}
-    RectangleNumber = countRectangleSection(data) 
+    RectangleNumber = countRectangleSection() 
 
     for rect in RectangleNumber:
         entry = [] 
         i = 0
-        print(rect)
         for line in data.values():
             i = i + 1
             if rect == line[2]:    #si rect ( 1,2 ou 3) == a une sequence ( 1,2,3,4,5) 
                 entry.append(i)
-        information.update({ rect : entry })
+            
+        information.update({ rect :entry })
     print(information)
     return information
     
