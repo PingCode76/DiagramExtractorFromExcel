@@ -7,7 +7,7 @@ import turtle
 from turtle import *
 from collections import Counter
 from random import randint
-#from .utils import getData
+from .utils import *
 #import utils
 
 def getData():
@@ -42,12 +42,12 @@ def formatData(nbFunction):
         del data[letter[nb]]
     return data
 
-data = formatData(1)  #change every loop
-
+ #change every loop
 
 def countDiagramNumber():
     listData = []
     outputList = []
+    data = getData()
     for line in data.values():
         listData.append(line[0])
     for element in listData:
@@ -55,13 +55,13 @@ def countDiagramNumber():
             outputList.append(element)
     return len(outputList)
 
-countDiagramNumber()
+dataCurrent = formatData(1)
 
 # Count a all name and number of sequence type #OUTPUT : '
 def countRectangleSection():
     WordList = ''
     RectangleName = []
-    for line in data.values():
+    for line in dataCurrent.values():
         WordList = WordList + line[2] + ' ' #1 Select a Sequence type
     for mot in WordList.split():
         if mot in WordList:
@@ -78,7 +78,7 @@ def countRectangleSection():
 def countlabel():
     LabelNumber = 0
     WordList = ''
-    for line in data.values():
+    for line in dataCurrent.values():
         #if line[0] == '1':
         WordList = WordList + line[2] + ' '
         LabelNumber = LabelNumber + 1
@@ -87,7 +87,7 @@ def countlabel():
 # SELECT ONE LINE OF DATA  
 def selectLineinData(numberLine):
     i = 0
-    for line in data.values():
+    for line in dataCurrent.values():
         i = i + 1
         if numberLine == i:
             return line
@@ -100,7 +100,7 @@ def LabelInformation():
     for rect in RectangleNumber:
         entry = [] 
         i = 0
-        for line in data.values():
+        for line in dataCurrent.values():
             i = i + 1
             if rect == line[2]:    #si rect ( 1,2 ou 3) == a une sequence ( 1,2,3,4,5) 
                 entry.append(i)
@@ -113,7 +113,7 @@ def LabelInformation():
 def createTableColor():
     i = 0   
     table = []
-    for line in data.values():
+    for line in dataCurrent.values():
         #increment
         i = i + 1 
         # add element in table if not exist
@@ -130,7 +130,7 @@ def checkdifferentsColor():
     table = createTableColor()
 
     # attribute colors
-    for line in data.values():
+    for line in dataCurrent.values():
         n = n + 1 
         i = i + 1
         if table[0]:
@@ -152,7 +152,7 @@ def nodeInformation():
     table1 = {}
     table2 = {}
 
-    for line in data.values():
+    for line in dataCurrent.values():
         i = i + 1 
         table1.update({i :line[4]})
         table2.update({i :line[5]})
