@@ -25,8 +25,10 @@ def encode_file(filename, size):
 
 #numberFunctiontoDraw = countDiagramNumber()
 #nbDraw = 1
-
 path="app/static/img/diagram1.svg"
+if os.path.exists(path):
+    os.remove(path)
+
 encode_file(path , size=("2000px", "2000"))
 
 
