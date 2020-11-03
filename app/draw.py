@@ -134,15 +134,15 @@ def drawingNode(xDraw,y,i,nbDraw):
 
     # Import nodes
     nodes = nodeInformation(nbDraw) #output : {node1: [label1, label5], node2:... }
-    LabelInfo = LabelInformation()
+    LabelInfo = LabelInformation(nbDraw)
 
     # for each nodes
-    for node in nodes: # 
+    for node in nodes:
 
         # out node = i ( label number)
         if nodes[node][1] == i : 
     
-            #print(y)
+            print(y)
             # face to face
             if nodes[node][1] == i & nodes[node][0] == i :
                 turtle.goto(xDraw+275,y+65)
@@ -214,6 +214,8 @@ def drawDiagram(nbDraw):
             # get txt node 
             txtNode2 = line[5] # get txt node 2 - inject to drawingLabel
 
+            if nbLabel == 1:
+                y = 800
             drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode2 )  #inject here
 
             drawingNode(xDraw,y,i,nbDraw) 
