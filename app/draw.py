@@ -1,8 +1,8 @@
 from .diagram import * 
 
-def drawingRectangle(x = -1000):
-   
-    for rectangle in LabelInformation():
+def drawingRectangle(nbDraw):
+    x = -1000
+    for rectangle in LabelInformation(nbDraw):
         turtle.color('green')
         turtle.up()
         turtle.goto(x, 400)
@@ -130,8 +130,8 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.left(90) # 90 degree
     turtle.up()
 
-def drawingNode():
-    nodes = nodeInformation()
+def drawingNode(nbDraw):
+    nodes = nodeInformation(nbDraw)
 
     # Import nodes
     # for each nodes
@@ -139,16 +139,16 @@ def drawingNode():
     # Drawing node
 
 
-def drawDiagram():
+def drawDiagram(nbDraw):
 
-    labelGroup = LabelInformation()
+    labelGroup = LabelInformation(nbDraw)
 
     xDraw = -1350
     for i in labelGroup:
         #print(labelGroup[i])
         
         # for each rectangle
-        drawingRectangle()
+        drawingRectangle(nbDraw)
         # change pos draw
         xDraw = xDraw + 400
         # count how label
@@ -157,14 +157,14 @@ def drawDiagram():
         for i in labelGroup[i]:
             # get txt and node of label
 
-            line = selectLineinData(int(i))
+            line = selectLineinData(int(i), nbDraw)
 
             #print(line)
             txtLabel = line[3] # get txt in DataLine - inject to drawingLabel
             #print(txtLabel)
 
             # get color of label
-            color = checkdifferentsColor()
+            color = checkdifferentsColor(nbDraw)
             colorLabel = color[i] # get color - inject to drawingLabel
             #print(color[i])
             
@@ -179,5 +179,5 @@ def drawDiagram():
             y = y + 200
             
             #print(i)
-        drawingNode()
+        drawingNode(nbDraw)
     #turtle.bye()

@@ -55,12 +55,11 @@ def countDiagramNumber():
             outputList.append(element)
     return len(outputList)
 
-dataCurrent = formatData(1)
-
 # Count a all name and number of sequence type #OUTPUT : '
-def countRectangleSection():
+def countRectangleSection(nbDraw):
     WordList = ''
     RectangleName = []
+    dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
         WordList = WordList + line[2] + ' ' #1 Select a Sequence type
     for mot in WordList.split():
@@ -75,9 +74,10 @@ def countRectangleSection():
     return RectangleName
 
 #Count a number of label ( entry line in table )
-def countlabel():
+def countlabel(nbDraw):
     LabelNumber = 0
     WordList = ''
+    dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
         #if line[0] == '1':
         WordList = WordList + line[2] + ' '
@@ -85,17 +85,19 @@ def countlabel():
     return LabelNumber
 
 # SELECT ONE LINE OF DATA  
-def selectLineinData(numberLine):
+def selectLineinData(numberLine, nbDraw):
     i = 0
+    dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
         i = i + 1
         if numberLine == i:
             return line
 # find which label belongs to which rectangle    
 # output : { col:[label1 ,label2], tra:[label3,label4]}  
-def LabelInformation():
+def LabelInformation(nbDraw):
+    dataCurrent = formatData(nbDraw)
     information = {}
-    RectangleNumber = countRectangleSection() 
+    RectangleNumber = countRectangleSection(nbDraw) 
 
     for rect in RectangleNumber:
         entry = [] 
@@ -110,9 +112,10 @@ def LabelInformation():
     return information
     
 # intern function, do not use in draw.py
-def createTableColor():
+def createTableColor(nbDraw):
     i = 0   
     table = []
+    dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
         #increment
         i = i + 1 
@@ -122,14 +125,15 @@ def createTableColor():
     return table
 
 # output : 1 : red, 2: yellow
-def checkdifferentsColor():
+def checkdifferentsColor(nbDraw):
     information = {}
     ColorsDifferent = ['green', 'yellow','orange', 'red', 'blue','purple','marron', 'grey', 'black', 'white']
     i = 0   
     n = 0
-    table = createTableColor()
+    table = createTableColor(nbDraw)
 
     # attribute colors
+    dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
         n = n + 1 
         i = i + 1
@@ -145,13 +149,13 @@ def checkdifferentsColor():
     return information
 
 #output : {node1: [label1, label5], node2:... }
-def nodeInformation():
+def nodeInformation(nbDraw):
     nodes = {}
     i = 0
     numéroNoeudTable = 0 
     table1 = {}
     table2 = {}
-
+    dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
         i = i + 1 
         table1.update({i :line[4]})
