@@ -140,11 +140,24 @@ def drawingNode(xDraw,y,i,nbDraw,nbLabel):
     for node in nodes:
 
         # out node = i ( label number)
+        print("nodes")
+        print(node)
+        print("nodes[node]")
+        print(nodes[node])
+        print("nodes entré")
+        print(nodes[node][0])
+        print("nodes sortie")
+        print(nodes[node][1])
+        print("i")
+        print(i)
+
+
         if nodes[node][1] == i : 
     
             print(y)
             # face to face
-            if nodes[node][1] == i & nodes[node][0] == i or nbLabel == 1 : 
+            if nodes[node][1] == i & nodes[node][0] == i or nbLabel == 1 :
+                print("face to face verified")
                 turtle.goto(xDraw+275,y+65)
                 turtle.down()
                 turtle.color('white') # color 
@@ -153,8 +166,9 @@ def drawingNode(xDraw,y,i,nbDraw,nbLabel):
                 turtle.pensize(-5.5)
                 turtle.up()
  
-            # top for bottom
-            if y == 800 and nbLabel != 1 or nbLabel == 1 & nodes[node][0] == i  :
+            # top for bottom 
+            if y == 800 and nbLabel != 1 or nbLabel == 1 & nodes[node][0] == i  : 
+                print("top for bottom verified")
                 turtle.goto(xDraw+273,y+65) # y = 45 
                 turtle.down()
                 turtle.color('white') # color 
@@ -167,6 +181,7 @@ def drawingNode(xDraw,y,i,nbDraw,nbLabel):
 
             # bottom for top
             if y == 600 and nbLabel != 1 :
+                print("bottom for top verified")
                 turtle.goto(xDraw+250,y+95)
                 turtle.down()
                 turtle.color('white') # color 
