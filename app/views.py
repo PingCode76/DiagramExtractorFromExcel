@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, jsonify
 
-from .utils import drawDiagram
+from .utils import MainDraw
 
 app = Flask(__name__)
 # Config options - Make sure you created a 'config.py' file.
@@ -13,7 +13,7 @@ def index():
 
 @app.route('/result')
 def result():
-    drawDiagram()
+    MainDraw()
     return render_template('result.html')
 
 @app.errorhandler(405)
