@@ -26,11 +26,6 @@ def drawingRectangle(x = -1000):
 
 def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at starting
 
-    #print(x)
-    #print(y)
-
-    ## LABEL 
-
     turtle.color('green') #color 
     turtle.up()
     turtle.goto(x,y) # pos
@@ -157,7 +152,7 @@ def drawingNode(xDraw,y,NumberOfLabel):
         print(LabelInfo['1'][0]) # Premier Label Numero 6 du premier rectangle 
         print(LabelInfo['1'][1]) # Deuxiéme label du premier rectangle
        
-       # good 
+        # good 
         print("nodes")
         print(nodes) # le noeud i doit etre relié au label x et y 
 
@@ -190,6 +185,7 @@ def drawingNode(xDraw,y,NumberOfLabel):
             turtle.up()
     return
 
+
 def drawDiagram():
 
     labelGroup = LabelInformation()
@@ -207,7 +203,8 @@ def drawDiagram():
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
             # get txt and node of label
-            line = selectLineinData(i) 
+            line = selectLineinData(int(i))
+
 
             #print(line)
             txtLabel = line[3] # get txt in DataLine - inject to drawingLabel
