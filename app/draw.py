@@ -1,8 +1,8 @@
 from .diagram import * 
 
-def drawingRectangle(x = -1000):
-   
-    for rectangle in LabelInformation():
+def drawingRectangle(nbDraw):
+    x = -1000
+    for rectangle in LabelInformation(nbDraw):
         turtle.color('green')
         turtle.up()
         turtle.goto(x, 400)
@@ -130,9 +130,10 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
     turtle.left(90) # 90 degree
     turtle.up()
 
-def drawingNode(xDraw,y,NumberOfLabel):
+def drawingNode(xDraw,y,NumberOfLabel,nbDraw):
+
     # Import nodes
-    nodes = nodeInformation() #output : {node1: [label1, label5], node2:... }
+    nodes = nodeInformation(nbDraw) #output : {node1: [label1, label5], node2:... }
     LabelInfo = LabelInformation()
 
     #print(" nodes" )
@@ -186,16 +187,16 @@ def drawingNode(xDraw,y,NumberOfLabel):
     return
 
 
-def drawDiagram():
+def drawDiagram(nbDraw):
 
-    labelGroup = LabelInformation()
+    labelGroup = LabelInformation(nbDraw)
 
     xDraw = -1350
     for i in labelGroup:
         #print(labelGroup[i])
         
         # for each rectangle
-        drawingRectangle()
+        drawingRectangle(nbDraw)
         # change pos draw
         xDraw = xDraw + 400
         # count how label
@@ -203,7 +204,8 @@ def drawDiagram():
         nbLabel = len(labelGroup[i])
         for i in labelGroup[i]:
             # get txt and node of label
-            line = selectLineinData(int(i))
+            line = selectLineinData(int(i), nbDraw)
+
 
 
             #print(line)
@@ -211,7 +213,7 @@ def drawDiagram():
             #print(txtLabel)
 
             # get color of label
-            color = checkdifferentsColor()
+            color = checkdifferentsColor(nbDraw)
             colorLabel = color[i] # get color - inject to drawingLabel
             #print(color[i])
             
@@ -228,7 +230,6 @@ def drawDiagram():
             #print("line") 
             #print(line)
 
-            drawingNode(xDraw,y,NumberOfLabel) 
+            drawingNode(xDraw,y,NumberOfLabel, nbDraw) 
             y = y + 200
-            
-            #print(i)
+
