@@ -21,7 +21,7 @@ def getData():
         "f":["2","1","Col","Cras Suscipit hendrerit feugiat Viva porta sed consecta","AB56","KJ65"],
         "g":["2","2","Tra","Ipsum proin quis tortora maxima Aenean lobortis","KJ65","HF32"],
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
-        "i":["2","1","Col","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","H123","KJ65"], # add
+        "i":["3","1","Col","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","H123","KJ65"], # add
         }
     return data
 
@@ -130,23 +130,21 @@ def checkdifferentsColor(nbDraw):
     information = {}
     ColorsDifferent = ['green', 'yellow','orange', 'red', 'blue','purple','marron', 'grey', 'black', 'white']
     i = 0   
-    n = 0
     table = createTableColor(nbDraw)
 
+    
     # attribute colors
     dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
-        n = n + 1 
         i = i + 1
-        if table[0]:
-            if line[2] == table[0]:
-                information.update({i: ColorsDifferent[0]})
-        if table[1]:
-            if line[2] == table[1]:
-                information.update({i: ColorsDifferent[1]})
-        if table[2]:
-            if line[2] == table[2]:
-                information.update({i: ColorsDifferent[2]})
+        nbColor = len(table)
+        print(nbColor)
+        z = 0 
+        while z < nbColor:
+            if table[z]:
+                if line[2] == table[z]:
+                    information.update({i: ColorsDifferent[z]})
+            z = z + 1
     return information
 
 #output : {node1: [label1, label5], node2:... }
