@@ -153,9 +153,33 @@ def drawingNode(xDraw,y,i,nbDraw,VariablespositionLabels,nbLabel):
             #turtle.goto(30,30) # test
             turtle.pensize(-5.5)
             turtle.up()
-        #else:
+        else:
+            try:
+                print("position premier label")
+                labelFirstX = VariablespositionLabels['label'+str(nodes[node][1])+'x'] # pos x of out node
+                labelFirstY = VariablespositionLabels['label'+str(nodes[node][1])+'y'] # pos y of out node 
+                
+                # labelpremierY = VariablespositionLabels['label'+str(i)+'y'] # ? 
+                turtle.up()
+                turtle.color('red') 
+                turtle.pensize(5.5)
+                turtle.goto(labelFirstX + 272 , labelFirstY + 65) # pos start 
+                turtle.down()
+                turtle.pensize(-5.5)
 
-            
+                # pos finish label 
+                print("position deuxiéme label")
+                labelSecondX = VariablespositionLabels['label'+str(nodes[node][0])+'x'] # pos x of in node
+                labelSecondY = VariablespositionLabels['label'+str(nodes[node][0])+'y'] # pos y of in node
+                
+                turtle.color('green') 
+                turtle.pensize(5.5)
+                turtle.goto(labelSecondX-25,labelSecondY+ 60) # pos finish
+                #turtle.goto(30,30) # test
+                turtle.pensize(-5.5)
+                turtle.up()
+            except:
+                pass
 
     return
 
