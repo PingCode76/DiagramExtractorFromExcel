@@ -128,7 +128,7 @@ def drawingNode(xDraw,y,i,nbDraw,VariablespositionLabels,nbLabel):
         
 
 
-        if nodes[node][1] == i: 
+        if nodes[node][1] == i -1 or nodes[node][0] == i -1 or nodes[node][0] == i -1 & nodes[node][1] == i -1: 
             #while i > nbLabel:
             if i - 1 > nbLabel:
                 # actual label 
@@ -137,7 +137,7 @@ def drawingNode(xDraw,y,i,nbDraw,VariablespositionLabels,nbLabel):
                 labelFirstY = VariablespositionLabels['label'+str(nodes[node][0])+'y'] # pos y of in node 
                 
                 # labelpremierY = VariablespositionLabels['label'+str(i)+'y'] # ? 
-
+                turtle.up()
                 turtle.color('red') 
                 turtle.pensize(5.5)
                 turtle.goto(labelFirstX + 272 , labelFirstY + 65) # pos start 
@@ -154,6 +154,7 @@ def drawingNode(xDraw,y,i,nbDraw,VariablespositionLabels,nbLabel):
                 turtle.goto(labelSecondX,labelSecondY) # pos finish
                 #turtle.goto(30,30) # test
                 turtle.pensize(-5.5)
+                turtle.up()
     return
 
 
