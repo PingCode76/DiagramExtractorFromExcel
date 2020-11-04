@@ -22,6 +22,8 @@ def getData():
         "g":["2","2","Tra","Ipsum proin quis tortora maxima Aenean lobortis","KJ65","HF32"],
         "h":["2","3","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","HF32","ZX12"],
         "i":["3","1","Col","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","H123","KJ65"], # add
+        "j":["3","1","Col","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","SE44","KJ65"],
+        "k":["3","1","Tra","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","KJ65","SE45"],
         }
     return data
 
