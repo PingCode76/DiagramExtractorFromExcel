@@ -108,13 +108,15 @@ def drawingLabel(x,y, txtLabel, colorLabel, txtNode1, txtNode2):  #y = 800 at st
 def drawingNode(xDraw,y,i,nbDraw,VariablespositionLabels,nbLabel):
     # Import nodes
     nodes = nodeInformation(nbDraw) #output : {node1: [label1, label5], node2:... }
+    print(nodes)
     LabelInfo = LabelInformation(nbDraw)
     print(VariablespositionLabels)
 
+    print('les noeuds')
+    print(nodes)
     # for each nodes
     for node in nodes: #
         # out node = i ( label number)
-        print(node)
         # obtenir une position x
 
         print("Label position x")
@@ -128,7 +130,7 @@ def drawingNode(xDraw,y,i,nbDraw,VariablespositionLabels,nbLabel):
 
         if nodes[node][1] == i: 
             #while i > nbLabel:
-            if i > nbLabel:
+            if i - 1 > nbLabel:
                 # actual label 
                 print("position premier label")
                 labelFirstX = VariablespositionLabels['label'+str(nodes[node][0])+'x'] # pos x of in node
