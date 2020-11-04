@@ -24,16 +24,18 @@ def getData():
         "i":["3","1","Col","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","H123","KJ65"], # add
         "j":["3","1","Col","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","SE44","KJ65"],
         "k":["3","1","Tra","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","KJ65","SE45"],
+        "l":["3","1","Fer","Laculis euis mod In hac habitasse platea dictumus. Etiam dictum","SE45","ERT4"],
+        "m":["4","1","Col","hey lorem ipsum lorem in dolor","RG45","TRA2"],
+        "n":["4","1","Tra","hey lorem ipsum lorem in dolor","TRA2","ERT4"],
         }
     return data
-
 
 # format data for select id_function
 
 def formatData(nbFunction):
     i = 0
 
-    letter = ['a','b','c','d','e','f','g','h','i','j','k','l']
+    letter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p']
     
     tableToDelete = []
     data = getData()
