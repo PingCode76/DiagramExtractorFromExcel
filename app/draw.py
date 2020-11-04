@@ -128,13 +128,18 @@ def drawingNode(xDraw,y,i,nbDraw,VariablespositionLabels,nbLabel):
         
 
 
-        if nodes[node][1] == i -1 or nodes[node][0] == i -1 or nodes[node][0] == i -1 & nodes[node][1] == i -1: 
+        if (
+        nodes[node][1] == i or
+        nodes[node][0] == i or
+        nodes[node][1] == i & nodes[node][0] == i or
+        nodes[node][0] == nodes[node][1]
+        ): 
             #while i > nbLabel:
             if i - 1 > nbLabel:
                 # actual label 
                 print("position premier label")
-                labelFirstX = VariablespositionLabels['label'+str(nodes[node][0])+'x'] # pos x of in node
-                labelFirstY = VariablespositionLabels['label'+str(nodes[node][0])+'y'] # pos y of in node 
+                labelFirstX = VariablespositionLabels['label'+str(nodes[node][1])+'x'] # pos x of out node
+                labelFirstY = VariablespositionLabels['label'+str(nodes[node][1])+'y'] # pos y of out node 
                 
                 # labelpremierY = VariablespositionLabels['label'+str(i)+'y'] # ? 
                 turtle.up()
@@ -146,8 +151,8 @@ def drawingNode(xDraw,y,i,nbDraw,VariablespositionLabels,nbLabel):
  
                 # pos finish label 
                 print("position deuxiéme label")
-                labelSecondX = VariablespositionLabels['label'+str(nodes[node][1])+'x'] # pos x of out node
-                labelSecondY = VariablespositionLabels['label'+str(nodes[node][1])+'y'] # pos y of out node
+                labelSecondX = VariablespositionLabels['label'+str(nodes[node][0])+'x'] # pos x of in node
+                labelSecondY = VariablespositionLabels['label'+str(nodes[node][0])+'y'] # pos y of in node
                 
                 turtle.color('green') 
                 turtle.pensize(5.5)
