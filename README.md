@@ -12,11 +12,14 @@ A Data extractor for excel to create diagram
 ## Generality
 
 Launch a python server:
-::
+
+{% filename %}command-line{% endfilename %}
     python run.py
 
 install the necessary library
-::
+
+{% filename %}command-line{% endfilename %}
+
     - pip install flask
     - pip install xlrd
     - pip install turtle
