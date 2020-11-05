@@ -4,6 +4,7 @@ import os
 import shutil
 import xlrd
 import turtle
+import string
 from turtle import *
 from collections import Counter
 from random import randint
@@ -34,11 +35,30 @@ def getData():
 
 def formatData(nbFunction):
     i = 0
-
-    letter = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p']
-    
-    tableToDelete = []
     data = getData()
+    #print(len(getData()))
+    letter = []
+    z = 0
+    rows = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+    # if there is not enough letter, add numbers in front of letters according to the length of the data 
+    while z < len(getData()):
+        if z < 26:
+            letter.append(rows[z])
+        elif z > 27 & z < 51 :
+            try:
+                letter.append(rows[z - 28] + str(1))
+            except:
+                pass
+        elif z > 52 & z < 78 :
+            try:
+                letter.append(rows[z - 56] + str(2))
+            except:
+                pass
+
+        z = z + 1
+
+    tableToDelete = []
     for line in data.values():    #for key2, value2 in table2.items():
         if line[0] != str(nbFunction):
             tableToDelete.append(i)
