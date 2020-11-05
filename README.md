@@ -1,6 +1,6 @@
 # DiagrameExtractorFromExcel
 
-A Data extractor for excel to create diagram
+from data provided by the user, the application is able to create and organize a UML activity diagram
 
 ## Use the app 
 
