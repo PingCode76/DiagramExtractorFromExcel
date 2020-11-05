@@ -199,11 +199,7 @@ def drawDiagram(nbDraw):
             # get txt and node of label
             # add y and y data in labelVariableXY
 
-            textnbLabel = "label" + str(i)
-            print(textnbLabel)
-            #VariablespositionLabels.update = ({textnbLabel + 'x': xDraw, textnbLabel + 'y': y})
-            VariablespositionLabels[textnbLabel + 'x'] = xDraw
-            VariablespositionLabels[textnbLabel + 'y'] = y
+
 
             line = selectLineinData(int(i), nbDraw)
             #print(line)
@@ -218,7 +214,17 @@ def drawDiagram(nbDraw):
             txtNode1 = line[4] # get txt node 1 - inject to drawingLabel
             # get txt node 
             txtNode2 = line[5] # get txt node 2 - inject to drawingLabel
+
+            if nbLabel == 1 :
+                y = 800
+
+            textnbLabel = "label" + str(i)
+            print(textnbLabel)
             
+            #VariablespositionLabels.update = ({textnbLabel + 'x': xDraw, textnbLabel + 'y': y})
+            VariablespositionLabels[textnbLabel + 'x'] = xDraw
+            VariablespositionLabels[textnbLabel + 'y'] = y
+
             drawingLabel(xDraw, y , txtLabel , colorLabel ,txtNode1, txtNode2 )  #inject here
             drawingNode(xDraw,y,i,nbDraw, VariablespositionLabels,nbLabel) 
             y = y + 200
