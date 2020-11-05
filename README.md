@@ -32,4 +32,4 @@ The application works with python and the flask micro-framework. Turtle.py is us
 - views.py is the application routing file
 - base.html/index.html/result.html are template files, no algorithmic element at this
 - the generated SVG can be found in static/img/
-- run.py est le point d'entrée de l'application, utilisez python run.py pour lancer le server
+- run.py is the entry point of the application
