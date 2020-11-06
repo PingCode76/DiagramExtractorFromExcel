@@ -43,6 +43,11 @@ def formatData(nbFunction):
 
     # if there is not enough letter, add numbers in front of letters according to the length of the data 
     while z < len(getData()):
+        # TODO: replace 100 to len(getData()
+        a = 100/26
+        print(a)
+        # around a -> for each a, make : 
+        
         if z < 26:
             letter.append(rows[z])
         elif z > 27 & z < 51 :
