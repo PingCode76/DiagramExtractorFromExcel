@@ -200,7 +200,6 @@ def drawDiagram(nbDraw):
             # add y and y data in labelVariableXY
 
 
-
             line = selectLineinData(int(i), nbDraw)
             #print(line)
             txtLabel = line[3] # get txt in DataLine - inject to drawingLabel

@@ -9,6 +9,7 @@ from turtle import *
 from collections import Counter
 from random import randint
 from .utils import *
+from math import *
 #import utils
 
 def getData():
@@ -31,8 +32,7 @@ def getData():
         }
     return data
 
-# format data for select id_function
-
+# return data with a current function
 def formatData(nbFunction):
     i = 0
     data = getData()
@@ -42,37 +42,30 @@ def formatData(nbFunction):
     rows = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
     # if there is not enough letter, add numbers in front of letters according to the length of the data 
-    while z < len(getData()):
-        # TODO: replace 100 to len(getData()
-        a = 100/26
-        print(a)
-        # around a -> for each a, make : 
-        
-        if z < 26:
+    minLetter = 26
+    maxLetter = 51
+    sliceVar = len(getData())/26
+
+    # for the 26 letter slices of the alphabet, add the number behind the letter, according to the data
+    while z < len(getData()): 
+        if z < minLetter:
             letter.append(rows[z])
-        elif z > 27 & z < 51 :
+        elif z > minLetter + 1 & z < maxLetter :
             try:
-                letter.append(rows[z - 28] + str(1))
-            except:
-                pass
-        elif z > 52 & z < 78 :
-            try:
-                letter.append(rows[z - 56] + str(2))
+                letter.append(rows[z - minLetter + 28] + str(z))
             except:
                 pass
 
         z = z + 1
 
     tableToDelete = []
-    for line in data.values():    #for key2, value2 in table2.items():
+    for line in data.values():
         if line[0] != str(nbFunction):
             tableToDelete.append(i)
         i = i + 1
     for nb in tableToDelete:
         del data[letter[nb]]
     return data
-
- #change every loop
 
 def countDiagramNumber():
     listData = []
@@ -96,11 +89,6 @@ def countRectangleSection(nbDraw):
         if mot in WordList:
             WordList = WordList.replace(mot, '')
             RectangleName.append(mot)
-    
-    #Set maximum rectangle at 3
-    #if len(RectangleName) > 3:
-        #RectangleName = ['1', '2', '3']
-
     return RectangleName
 
 #Count a number of label ( entry line in table )
@@ -109,7 +97,6 @@ def countlabel(nbDraw):
     WordList = ''
     dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
-        #if line[0] == '1':
         WordList = WordList + line[2] + ' '
         LabelNumber = LabelNumber + 1
     return LabelNumber
@@ -122,6 +109,8 @@ def selectLineinData(numberLine, nbDraw):
         i = i + 1
         if numberLine == i:
             return line
+
+
 # find which label belongs to which rectangle    
 # output : { col:[label1 ,label2], tra:[label3,label4]}  
 def LabelInformation(nbDraw):
@@ -134,7 +123,7 @@ def LabelInformation(nbDraw):
         i = 0
         for line in dataCurrent.values():
             i = i + 1
-            if rect == line[2]:    #si rect ( 1,2 ou 3) == a une sequence ( 1,2,3,4,5) 
+            if rect == line[2]: 
                 entry.append(i)
             
         information.update({ rect :entry })
@@ -147,7 +136,6 @@ def createTableColor(nbDraw):
     table = []
     dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
-        #increment
         i = i + 1 
         # add element in table if not exist
         if line[2] not in table:
@@ -161,7 +149,6 @@ def checkdifferentsColor(nbDraw):
     i = 0   
     table = createTableColor(nbDraw)
 
-    
     # attribute colors
     dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
@@ -194,7 +181,4 @@ def nodeInformation(nbDraw):
                 numéroNoeudTable = numéroNoeudTable + 1
                 nodes.update({numéroNoeudTable : [ key , key2 ]})
     return nodes
-
-
-## TEST for module
 
