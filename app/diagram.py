@@ -32,8 +32,7 @@ def getData():
         }
     return data
 
-# format data for select id_function
-
+# return data with a current function
 def formatData(nbFunction):
     i = 0
     data = getData()
@@ -58,7 +57,6 @@ def formatData(nbFunction):
                 pass
 
         z = z + 1
-    #print(letter)
 
     tableToDelete = []
     for line in data.values():
@@ -68,8 +66,6 @@ def formatData(nbFunction):
     for nb in tableToDelete:
         del data[letter[nb]]
     return data
-
- #change every loop
 
 def countDiagramNumber():
     listData = []
@@ -93,11 +89,6 @@ def countRectangleSection(nbDraw):
         if mot in WordList:
             WordList = WordList.replace(mot, '')
             RectangleName.append(mot)
-    
-    #Set maximum rectangle at 3
-    #if len(RectangleName) > 3:
-        #RectangleName = ['1', '2', '3']
-
     return RectangleName
 
 #Count a number of label ( entry line in table )
@@ -106,7 +97,6 @@ def countlabel(nbDraw):
     WordList = ''
     dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
-        #if line[0] == '1':
         WordList = WordList + line[2] + ' '
         LabelNumber = LabelNumber + 1
     return LabelNumber
@@ -119,6 +109,8 @@ def selectLineinData(numberLine, nbDraw):
         i = i + 1
         if numberLine == i:
             return line
+
+
 # find which label belongs to which rectangle    
 # output : { col:[label1 ,label2], tra:[label3,label4]}  
 def LabelInformation(nbDraw):
@@ -131,7 +123,7 @@ def LabelInformation(nbDraw):
         i = 0
         for line in dataCurrent.values():
             i = i + 1
-            if rect == line[2]:    #si rect ( 1,2 ou 3) == a une sequence ( 1,2,3,4,5) 
+            if rect == line[2]: 
                 entry.append(i)
             
         information.update({ rect :entry })
@@ -144,7 +136,6 @@ def createTableColor(nbDraw):
     table = []
     dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
-        #increment
         i = i + 1 
         # add element in table if not exist
         if line[2] not in table:
@@ -158,7 +149,6 @@ def checkdifferentsColor(nbDraw):
     i = 0   
     table = createTableColor(nbDraw)
 
-    
     # attribute colors
     dataCurrent = formatData(nbDraw)
     for line in dataCurrent.values():
@@ -191,7 +181,4 @@ def nodeInformation(nbDraw):
                 numéroNoeudTable = numéroNoeudTable + 1
                 nodes.update({numéroNoeudTable : [ key , key2 ]})
     return nodes
-
-
-## TEST for module
 

@@ -5,7 +5,6 @@ import shutil
 import xlrd
 import turtle
 from turtle import *
-#from Tkinter import *
 
 from random import randint
 
@@ -33,7 +32,6 @@ def MainDraw():
     print(str(numberFunctiontoDraw) + " fonction a encoer")
     while nbDraw < numberFunctiontoDraw :
         nbDraw = nbDraw + 1
-        #change_id_function(nbDraw)
         print("Encodage numéro " + str(nbDraw))
         path="app/static/img/diagram" + str(nbDraw) + ".svg"
         if os.path.exists(path):
