@@ -33,3 +33,8 @@ The application works with python and the flask micro-framework. Turtle.py is us
 - base.html/index.html/result.html are template files, no algorithmic element at this
 - the generated SVG can be found in static/img/
 - run.py is the entry point of the application
+
+## Algorithm
+
+![alt text](https://github.com/PingCode76/DiagramExtractorFromExcel/blob/File/diagramFlowCode.jpg?raw=true)
+
