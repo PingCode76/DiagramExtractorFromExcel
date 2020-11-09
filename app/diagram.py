@@ -9,6 +9,7 @@ from turtle import *
 from collections import Counter
 from random import randint
 from .utils import *
+from math import *
 #import utils
 
 def getData():
@@ -42,29 +43,25 @@ def formatData(nbFunction):
     rows = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
     # if there is not enough letter, add numbers in front of letters according to the length of the data 
-    while z < len(getData()):
-        # TODO: replace 100 to len(getData()
-        a = 100/26
-        print(a)
-        # around a -> for each a, make : 
-        
-        if z < 26:
+    minLetter = 26
+    maxLetter = 51
+    sliceVar = len(getData())/26
+
+    # for the 26 letter slices of the alphabet, add the number behind the letter, according to the data
+    while z < len(getData()): 
+        if z < minLetter:
             letter.append(rows[z])
-        elif z > 27 & z < 51 :
+        elif z > minLetter + 1 & z < maxLetter :
             try:
-                letter.append(rows[z - 28] + str(1))
-            except:
-                pass
-        elif z > 52 & z < 78 :
-            try:
-                letter.append(rows[z - 56] + str(2))
+                letter.append(rows[z - minLetter + 28] + str(z))
             except:
                 pass
 
         z = z + 1
+    #print(letter)
 
     tableToDelete = []
-    for line in data.values():    #for key2, value2 in table2.items():
+    for line in data.values():
         if line[0] != str(nbFunction):
             tableToDelete.append(i)
         i = i + 1
