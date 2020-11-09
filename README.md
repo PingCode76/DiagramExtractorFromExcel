@@ -36,5 +36,5 @@ The application works with python and the flask micro-framework. Turtle.py is us
 
 ## Algorithm
 
-![alt text](https://github.com/PingCode76/DiagramExtractorFromExcel/blob/File/diagramFlowCode.jpg?raw=true)
+![alt text](https://github.com/PingCode76/DiagramExtractorFromExcel/blob/File/diagramFlowCode.png)
 
