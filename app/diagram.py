@@ -36,7 +36,6 @@ def getData():
 def formatData(nbFunction):
     i = 0
     data = getData()
-    #print(len(getData()))
     letter = []
     z = 0
     rows = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -116,17 +115,34 @@ def selectLineinData(numberLine, nbDraw):
 def LabelInformation(nbDraw):
     dataCurrent = formatData(nbDraw)
     information = {}
-    RectangleNumber = countRectangleSection(nbDraw) 
+    RectangleNumber = countRectangleSection(nbDraw)
+
+    nodes = nodeInformation(nbDraw)
+    print(nodes) 
 
     for rect in RectangleNumber:
         entry = [] 
         i = 0
         for line in dataCurrent.values():
+            # i = number of label
             i = i + 1
+            # if the input line belongs to the rectangle
             if rect == line[2]: 
                 entry.append(i)
-            
-        information.update({ rect :entry })
+
+            #check if the label is correctly placed ( see nodes )
+            # m to browse the nodes
+            m = 1
+            while m < len(nodes):
+                
+                if i == nodes[m][0] or i == nodes[m][1]:
+                    if i == nodes[m + 1][0] or i == nodes[m + 1][1]:
+                        # inverse a labels
+                        print('label' + str(i) + 'match echange')
+                        if len(entry) > 1:
+                            entry[0],entry[1] = entry[1],entry[0]
+                m = m + 1
+        information.update({ rect : entry })
     print(information)
     return information
     
@@ -154,7 +170,6 @@ def checkdifferentsColor(nbDraw):
     for line in dataCurrent.values():
         i = i + 1
         nbColor = len(table)
-        print(nbColor)
         z = 0 
         while z < nbColor:
             if table[z]:

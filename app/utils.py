@@ -29,10 +29,9 @@ def change_id_function(id_function):
 def MainDraw():
     numberFunctiontoDraw = countDiagramNumber()
     nbDraw = 0
-    print(str(numberFunctiontoDraw) + " fonction a encoer")
+    print(str(numberFunctiontoDraw) + " fonction a encoder")
     while nbDraw < numberFunctiontoDraw :
         nbDraw = nbDraw + 1
-        print("Encodage numéro " + str(nbDraw))
         path="app/static/img/diagram" + str(nbDraw) + ".svg"
         if os.path.exists(path):
             os.remove(path)
